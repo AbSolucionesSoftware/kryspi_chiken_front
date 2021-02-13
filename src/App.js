@@ -12,7 +12,7 @@ export default function App() {
 		<div>
 			<Helmet>
 				<meta charSet="utf-8" />
-				<title>Zapateria Espinoza3</title>
+				<title>Krispy Chiken</title>
 			</Helmet>
 			<MenuProvider>
 				<Router>
