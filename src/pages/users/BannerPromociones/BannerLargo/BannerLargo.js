@@ -12,7 +12,7 @@ import TweenOne from 'rc-tween-one';
 import BannerAnim, { Element } from 'rc-banner-anim';
 import 'rc-banner-anim/assets/index.css';
 const BgElement = Element.BgElement;
-
+//hola mundio
 
  function Banner_Largo(props) {
     const {banner, imagenLocal } = props;
