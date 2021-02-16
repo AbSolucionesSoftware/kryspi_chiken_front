@@ -42,6 +42,7 @@ const Navegacion = (props) => {
 	useEffect(
 		() => {
 			setActive(true);
+			setLoading(true);
 			obtenerOfertas();
 			obtenerQuienesSomos();
 			if (token) {
@@ -105,7 +106,7 @@ const Navegacion = (props) => {
 		return (
 			<div className="preloading">
 				<div className="contenedor-preloading">
-					<Spin size="large" tip="Cargando la tienda..." className="spiner" />
+					<Spin size="large" tip="Cargando Restaurante..." className="spiner" />
 				</div>
 			</div>
 		);

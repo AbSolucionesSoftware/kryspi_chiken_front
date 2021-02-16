@@ -47,12 +47,12 @@ const Categorias = (props) => {
 				}
 			})
 			.then((res) => {
-				// setLoading(false);
+				setLoading(false);
 				setCategorias(res.data);
 				window.scrollTo(0, 0);
 			})
 			.catch((res) => {
-				// setLoading(false);
+				setLoading(false);
 			});
 	}
 
