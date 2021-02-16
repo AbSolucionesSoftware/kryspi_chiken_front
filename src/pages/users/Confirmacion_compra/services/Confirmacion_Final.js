@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useState, useEffect, useContext } from 'react';
 import Traer_pedido from './traer_pedido';
-import { Button, notification, Space } from 'antd';
+import { Button, notification } from 'antd';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import clienteAxios from '../../../../config/axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

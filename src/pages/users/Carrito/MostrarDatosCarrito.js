@@ -175,7 +175,7 @@ function MostrarDatosProductos(props) {
 					</div>
 				</div>
 			</div>
-			<ApartadoCarrito cliente={cliente._id} token={token} modal={[ visible, setVisible ]} />
+			<ApartadoCarrito cliente={cliente} token={token} modal={[ visible, setVisible ]} />
 		</Spin>
 	);
 }
