@@ -100,7 +100,7 @@ const FooterPage = (props) => {
                         className="footer-font-color"
                         key={categoria.categoria}
                     >
-                        <Link className="font-foot" to={(`/filtros/null/${categoria.categoria}/null/null`)}> 
+                        <Link className="font-cat-foot" to={(`/filtros/null/${categoria.categoria}/null/null`)}> 
                             {categoria.categoria}
                         </Link>
                     </Button>
@@ -116,7 +116,7 @@ const FooterPage = (props) => {
              <Footer className="bg-footer" >
                 <div end="xs" id="foot">  
                     <div className="row footer-font-color">
-                        <div className="col-lg-3  d-sm-text-center">
+                        <div className="col-lg-4  d-sm-text-center">
                             {tienda.imagenLogo !== '' && tienda.imagenLogo ?
                             <div className="contenedor-logo">
                                 <div className="logos"> 
@@ -131,7 +131,7 @@ const FooterPage = (props) => {
                             {/* <h6>{tienda.nombre !== '' ? tienda.nombre : ""}</h6> */}
                             {telefono !== '' && telefono ? 
                             <div className="row mt-3">
-                                <PhoneOutlined className="mt-1" style={{fontSize: 55, marginLeft: 5}} />
+                                <PhoneOutlined className="mt-1 d-none d-lg-block" style={{fontSize: 55, marginLeft: 5}} />
                                 <div className="px-3 mt-2">
                                     <p className="font-foot">¿Tienes preguntas? ¡Contáctanos!:</p> 
                                     {telefono !== '' ? (<h1 className="footer-font-color" style={{fontSize: 20}}>{telefono} </h1>): ""}
@@ -139,9 +139,9 @@ const FooterPage = (props) => {
                             </div>
                             : ""}
 
-                            <div className="mt-3 font-foot">
+                            <div className="mt-3 font-foot-normal">
 
-                                {accion ? (<p style={{fontWeight: "bold"}}>Datos de contacto:</p>):""}
+                                {accion ? (<p style={{fontWeight: "bold"}} className="font-foot">Datos de contacto:</p>):""}
                                 {direccion.calle_numero !== '' && direccion.calle_numero ? (
                                     <div>
                                         <p>{direccion.calle_numero}, Col. {direccion.colonia}, </p>
@@ -178,7 +178,7 @@ const FooterPage = (props) => {
                             </div>
                         </div>
                         {tienda.diasHorariosEmpresas !== '' && tienda.diasHorariosEmpresas !== "undefined" ? (
-                            <div className="col-lg-3 mt-4">
+                            <div className="col-lg-3 mt-5 d-none d-lg-block">
                                 <div className="container">
                                     <p className="font-foot">
                                         <span className="font-weight-bold">Horarios de Atención:</span>
@@ -189,7 +189,7 @@ const FooterPage = (props) => {
                         ) : (
                             null
                         )}
-                        <div className="col-lg-4 mt-lg-4 d-none d-lg-block">
+                        <div className="col-lg-3 mt-lg-5 d-none d-lg-block">
                             <p className="font-foot" style={{fontWeight: "bold"}}>Encuéntralo más rápido</p>
                             <div style={{columnCount: 2}}>
                                 <div >
@@ -197,47 +197,47 @@ const FooterPage = (props) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-2 mt-4 d-none d-lg-block" style={{columnCount: 1}}>
+                        <div className="col-lg-2 mt-5 d-none d-lg-block" style={{columnCount: 1}}>
                            <p className="font-foot" style={{fontWeight: "bold"}}>Atención al cliente</p>
-                           {imagenCorp !== '' ? (
+                           {/* {imagenCorp !== '' ? (
                                 <Link  to="/quienes_somos" >
                                     <Button className="footer-font-color font-foot" id="is" type="link" ><UserOutlined className="footer-font-color"/>
                                         Conócenos
                                     </Button>
                                 </Link>
-                            ): ""}
+                            ): ""} */}
 
                             {tienda.politicas !== '' && tienda.politicas ? (
                                 <HashLink to="/politicas#privacidad">
-                                    <Button className="footer-font-color font-foot" id="is" type="link" ><KeyOutlined className="footer-font-color"/>
+                                    <Button className="footer-font-color font-foot-normal" id="is" type="link" ><KeyOutlined className="footer-font-color"/>
                                         Aviso de Privacidad
                                     </Button>
                                 </HashLink>
                             ): ""}
                             {tienda.politicasDescuentos !== '' && tienda.politicasDescuentos ? (
                                 <HashLink to="/politicas#descuento">
-                                    <Button className="footer-font-color font-foot" id="is" type="link" ><KeyOutlined className="footer-font-color"/>
+                                    <Button className="footer-font-color font-foot-normal" id="is" type="link" ><KeyOutlined className="footer-font-color"/>
                                         Políticas de Descuento
                                     </Button>
                                 </HashLink>
                             ): ""}
                             {tienda.politicasDevolucion !== '' && tienda.politicasDevolucion ? (
                                 <HashLink to="/politicas#devolucion">
-                                    <Button className="footer-font-color font-foot" id="is" type="link" ><KeyOutlined className="footer-font-color"/>
+                                    <Button className="footer-font-color font-foot-normal" id="is" type="link" ><KeyOutlined className="footer-font-color"/>
                                         Políticas de Devolución
                                     </Button>
                                 </HashLink>
                             ): ""}
                             {tienda.politicasVentas !== '' && tienda.politicasVentas ? (
                                 <HashLink to="/politicas#ventas">
-                                    <Button className="footer-font-color font-foot" id="is" type="link" ><KeyOutlined className="footer-font-color"/>
+                                    <Button className="footer-font-color font-foot-normal" id="is" type="link" ><KeyOutlined className="footer-font-color"/>
                                         Políticas de Ventas
                                     </Button>
                                 </HashLink>
                             ): ""}
                             {tienda.politicasEnvios !== '' &&  tienda.politicasEnvios? (
                                 <HashLink to="/politicas#envios">
-                                    <Button className="footer-font-color font-foot" id="is" type="link" ><KeyOutlined className="footer-font-color"/>
+                                    <Button className="footer-font-color font-foot-normal" id="is" type="link" ><KeyOutlined className="footer-font-color"/>
                                         Políticas de Envíos
                                     </Button>
                                 </HashLink>
@@ -246,14 +246,14 @@ const FooterPage = (props) => {
 
                             {token && decoded['rol'] === false ? (
                             <Link  to="/perfiles">
-                                <Button className="footer-font-color font-foot" id="is" type="link" ><SettingOutlined className="footer-font-color"/>
+                                <Button className="footer-font-color font-foot-normal" id="is" type="link" ><SettingOutlined className="footer-font-color"/>
                                     Mi cuenta
                                 </Button>
                             </Link>
                             ) : 
                             (
                             <Link  to="/entrar">
-                                <Button className="footer-font-color font-foot" id="is" type="link" ><SettingOutlined className="footer-font-color"/>
+                                <Button className="footer-font-color font-foot-normal" id="is" type="link" ><SettingOutlined className="footer-font-color"/>
                                     Mi cuenta
                                 </Button>
                             </Link>

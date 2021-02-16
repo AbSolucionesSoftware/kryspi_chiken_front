@@ -123,30 +123,30 @@ const Navegacion = (props) => {
 					<div className="top-menu row a3 container-prin">
 						<div className="col-lg-12 container-pages a4">
 							<Menu
-								className="navbar-menu-sesion float-right nav-font-pages a5 font-foot"
+								className="navbar-menu-sesion float-right nav-font-pages a5 "
 								/* theme="light" */
 								mode="horizontal"
 								defaultSelectedKeys={[ window.location.pathname ]}
 								inlineindent={0}
 							>
-								<Menu.Item className="nav-font-color nav-border-color a6" key="/">
+								<Menu.Item className="nav-font-color nav-border-color font-foot-normal a6" key="/">
 									<div className="centrar-nav" >Inicio</div>
 									<Link to="/" />
 									
 								</Menu.Item>
-								<Menu.Item className="nav-font-color nav-border-color a6" key="/productos">
+								<Menu.Item className="nav-font-color nav-border-color font-foot-normal a6" key="/productos">
 									<div className="centrar-nav" >Productos</div>
 									<Link to="/productos" />
 								</Menu.Item>
 								{ofertas.length ? (
-									<Menu.Item className="nav-font-color nav-border-color a6" key="/ofertas">
+									<Menu.Item className="nav-font-color nav-border-color font-foot-normal a6" key="/ofertas">
 										<div className="centrar-nav" >Ofertas</div>
 										<Link to="/ofertas" />
 									</Menu.Item>
 								) : (
 									<Menu.Item className="d-none" />
 								)}
-								<Menu.Item className="nav-font-color nav-border-color a6" key="/blog">
+								{/* <Menu.Item className="nav-font-color nav-border-color a6" key="/blog">
 									<div className="centrar-nav" >Blog</div>
 									<Link to="/blog" />
 								</Menu.Item>
@@ -157,7 +157,7 @@ const Navegacion = (props) => {
 										<div className="centrar-nav" >Quiénes somos</div>
 										<Link to="/quienes_somos" />
 									</Menu.Item>
-								)}
+								)} */}
 							</Menu>
 						</div>
 					</div>
@@ -167,28 +167,26 @@ const Navegacion = (props) => {
 		
 		{/* DIVISOR PARA EL INPUT  */}
 
-		<Layout className="layout  a0">
+		<Layout className="layout a0">
 			<Header className=" a1">
 				<div className="menuCon  a2">
 					<div className="top-menu row a3">
-						<div className="col-lg-9 row-logo-search">
+						<div className="col-lg-2 row-logo-search">
 							<div className="row row-logo-search-2 ">
 									{!tienda.imagenLogo ? (
 										<div className="d-none" />
 									) : (
-										<div className="col-lg-3">
-											<Link to="/">
-												<div className="contenedor-logo">
-													<img
-														className="imagen-logo-principal"
-														alt="logotipo-tienda"
-														src={aws + tienda.imagenLogo}
-													/>
-												</div>
-											</Link>
-										</div>
+										<Link to="/">
+											<div className="contenedor-logo">
+												<img
+													className="imagen-logo-principal"
+													alt="logotipo-tienda"
+													src={aws + tienda.imagenLogo}
+												/>
+											</div>
+										</Link>
 									)}
-								<div className="col-lg-8 row input-search">
+								{/* <div className="col-lg-8 row input-search">
 									<Input
 										onChange={valor}
 										className="input-search border-color-search-input"
@@ -200,12 +198,15 @@ const Navegacion = (props) => {
 									>
 										<SearchOutlined style={{fontSize: 25}}/>
 									</Button>
-									
-								</div>
+								</div> */}
 							</div>
 						</div>
 						{/* INICIO DE AVATAR, TU CARRITO Y ENTRAR  */}
-						<div className="col-lg-3 a4 container-pages">
+						<div className="col-lg-7 containe-categorias  mt-2">
+							<Categorias />
+						</div>
+						<div className="col-lg-3 row a4 mt-2 justify-content-end">
+							<div>
 							<Menu
 								className="float-right navbar-menu-sesion a50"
 								/* theme="light" */
@@ -213,14 +214,7 @@ const Navegacion = (props) => {
 								defaultSelectedKeys={[ window.location.pathname ]}
 								inlineindent={0}
 							>
-								{!decoded || decoded.rol === true ? (
-									<Menu.Item key="" className="d-none" />
-								) : (
-									<Menu.Item className="nav-font-color-sesion a6 font-foot" key="/pedidos">
-										<div className="centrar-nav" >Mis compras</div>
-										<Link to="/pedidos" />
-									</Menu.Item>
-								)}
+								
 								{!decoded || decoded.rol === true ? (
 									<Menu.Item key="" className="d-none" />
 								) : (
@@ -248,12 +242,20 @@ const Navegacion = (props) => {
 											)
 										}
 									>
-										<Menu.Item key="" className="nav-font-color-sesion font-foot">
+										{!decoded || decoded.rol === true ? (
+											<Menu.Item key="" className="d-none" />
+										) : (
+											<Menu.Item className="nav-font-color-sesion a6 font-foot-normal" key="/pedidos">
+												<ShoppingOutlined /> Mis compras
+												<Link to="/pedidos" />
+											</Menu.Item>
+										)}
+										<Menu.Item key="" className="nav-font-color-sesion font-foot-normal">
 											<SettingOutlined />Mi cuenta<Link to="/perfiles" />
 										</Menu.Item>
 										<Menu.Item>
 											<div
-												className="text-danger centrar-nav font-foot"
+												className="text-danger centrar-nav font-foot-normal"
 												onClick={() => {
 													localStorage.removeItem('token');
 													firebase.auth().signOut();
@@ -281,12 +283,12 @@ const Navegacion = (props) => {
 											)
 										}
 									>
-										<Menu.Item key="" className="font-foot a6">
+										<Menu.Item key="" className="font-foot-normal a6">
 											<SettingOutlined />Panel de administrador<Link to="/admin" />
 										</Menu.Item>
 										<Menu.Item key="" className=" a6">
 											<div
-												className="text-danger centrar-nav font-foot"
+												className="text-danger centrar-nav font-foot-normal"
 												onClick={() => {
 													localStorage.removeItem('token');
 													firebase.auth().signOut();
@@ -311,6 +313,7 @@ const Navegacion = (props) => {
 									<Menu.Item key="" className="d-none" />
 								)}
 							</Menu>
+							</div>
 						</div>
 						{/* FIN DE AVATAR, TU CARRITO Y ENTRAR  */}
 
@@ -342,7 +345,7 @@ const Navegacion = (props) => {
 							!tienda.imagenLogo ? (
 								<div className="d-none" />
 							) : (
-								<div className="contenedor-logo">
+								<div className="contenedor-logo-draw">
 									<Link to="/">
 										<img
 											className="imagen-logo-principal"
