@@ -91,8 +91,6 @@ export default function Traer_datos(props) {
 		envios();
 	}, [])
 
-	console.log(envioTotal);
-
 	function enviarDatosUser() { 
 
 		const formData = new FormData();
