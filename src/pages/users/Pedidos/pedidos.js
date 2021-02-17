@@ -167,7 +167,7 @@ export default function PedidosUsuario(props) {
 					type="card"
 					size="large"
 				>
-					<TabPane tab="Mis Pedidos" key="1">
+					<TabPane tab="Envios a domicilio" key="1">
 						<div>
 							{showInfo !== true ? (
 								<Result
@@ -193,7 +193,7 @@ export default function PedidosUsuario(props) {
 							)}
 						</div>
 					</TabPane>
-					<TabPane tab="Mis Ordenes" key="2">
+					<TabPane tab="Recoger en restaurante" key="2">
 						<div>
 							{showInfo !== true ? (
 								<Result

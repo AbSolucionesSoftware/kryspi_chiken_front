@@ -227,6 +227,7 @@ function TallasCantidades(props) {
 	function modalMensaje() {
 		Modal.success({
 			icon: '',
+			closable: true,
 			content: (
 				<div className="text-center">
 					<p style={{ fontSize: 18 }}>¡Tu orden a sido recibida!</p>
@@ -253,7 +254,7 @@ function TallasCantidades(props) {
 					)}
 				</div>
 			),
-			onOk() {}
+			okButtonProps: {className: "color-boton"}
 		});
 	}
 

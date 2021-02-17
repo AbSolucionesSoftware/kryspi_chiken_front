@@ -127,7 +127,7 @@ function BusquedaCategorias(props) {
 						</Breadcrumb>
 					)}
 					<div>
-						<Button type="primary" size="large" className="mt-3" onClick={limpiarFiltros}>
+						<Button type="primary" size="large" className="mt-3 color-boton" onClick={limpiarFiltros}>
 							Limpiar filtros
 						</Button>
 					</div>
