@@ -225,7 +225,7 @@ const Navegacion = (props) => {
 									<Menu.Item className="nav-font-color-sesion font-foot-normal a6" key="/shopping_cart">
 										<div className="centrar-nav" >
 											<Badge count={carrito}>
-												<AlertOutlined style={{ fontSize: 26 }} /><Link to="/shopping_cart" />
+												<ShoppingOutlined style={{ fontSize: 26 }} /><Link to="/shopping_cart" />
 											</Badge>
 										</div>
 									</Menu.Item>
