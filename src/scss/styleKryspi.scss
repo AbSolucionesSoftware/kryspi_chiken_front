@@ -28,7 +28,7 @@ $bg-color-search: #e28000;
 $bg-color-search-hover:#ffc340;
 
 /* CARDS VARIABLES */
-$bg-color-cards-productos:  #e0e0e0;
+$bg-color-cards-productos:  #ffffff;
 
 /* SPINER VARIABLES */
 $color-spiner: #e28000;
@@ -198,6 +198,7 @@ p, a, li{
     background-color: $bg-color-cards-productos; 
     min-height: 90px;
 }
+
 .mini-contenedor-card-body > .ant-card-body{
     min-height: 90px;
     width: auto;
@@ -356,7 +357,15 @@ p, a, li{
 .font-peque{
     font-size: 14px;
     letter-spacing: .9px;
-
+}
+.titulo-producto{
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: .8px;
+    padding-left: 5%;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    padding-right: 2%;
 }
 
 .font-cates{
@@ -377,14 +386,18 @@ p, a, li{
 .precio-prin{
     font-size: 30px;
     letter-spacing: .9px;
-
 }
+
 .font-vista-prod{
     font-size: 15px;
     letter-spacing: .9px;
-
-
 }
+.font-boton-vista{
+    font-size: 18px;
+    letter-spacing: .9px;
+    border-radius: 5px;
+}
+
 .font-foot{
     font-size: 16px;
     letter-spacing: .9px;

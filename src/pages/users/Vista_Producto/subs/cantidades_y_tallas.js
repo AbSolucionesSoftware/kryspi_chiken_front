@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { InputNumber, Button, Form, Badge, Divider, notification, Modal, Select, Alert, List, Avatar } from 'antd';
-import { ShoppingCartOutlined, TagsOutlined, BellOutlined, WhatsAppOutlined } from '@ant-design/icons';
+import { AlertOutlined, CoffeeOutlined, HomeOutlined, WhatsAppOutlined } from '@ant-design/icons';
 import jwt_decode from 'jwt-decode';
 import { AgregarCarrito, AgregarApartado, AgregarPedido } from './services';
 import { formatoMexico } from '../../../../config/reuserFunction';
@@ -493,32 +493,32 @@ function TallasCantidades(props) {
 					<div className="contenedor-button-vista">
 						<div>
 							<Button
-								className="d-block size-button-vista color-boton font-vista-prod"
+								className="d-block size-button-vista color-boton font-boton-vista"
 								//type="primary"
 								size="large"
 								onClick={() => Pedido()}
 								disabled={disabled}
 							>
-								<TagsOutlined style={{ fontSize: 20 }} />
-								Comprar ahora
+								<CoffeeOutlined style={{ fontSize: 23 }} />
+								Ordenar ahora
 							</Button>
 							<Button
-								className="mt-3 d-block size-button-vista color-boton-sec font-vista-prod"
+								className="mt-3 d-block size-button-vista color-boton-sec font-boton-vista"
 								size="large"
 								onClick={() => showModal()}
 								disabled={disabled}
 							>
-								<BellOutlined style={{ fontSize: 20 }} />
-								Apartar
+								<HomeOutlined style={{ fontSize: 23 }} />
+								Recoger en sucursal
 							</Button>
 							<Button
-								className="mt-3 d-block size-button-vista color-boton-sec font-vista-prod"
+								className="mt-3 d-block size-button-vista color-boton-sec font-boton-vista"
 								size="large"
 								disabled={disabled}
 								onClick={() => Carrito()}
 							>
-								<ShoppingCartOutlined style={{ fontSize: 20 }} />
-								Agregar al carrito
+								<AlertOutlined  style={{ fontSize: 23 }} />
+								Agregar a orden
 							</Button>
 						</div>
 					</div>
@@ -566,10 +566,10 @@ function TallasCantidades(props) {
 									) : null}
 								</div>
 							</div>
-							<div className="d-flex">
+							{/* <div className="d-flex">
 								<h6 className="mr-2">Ordenado por:</h6>
 								<p><b>{decoded.nombre}</b></p>
-							</div>
+							</div> */}
 						</div>
 					</List.Item>
 				</List>

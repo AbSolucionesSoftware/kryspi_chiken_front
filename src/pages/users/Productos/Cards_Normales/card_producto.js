@@ -34,15 +34,15 @@ export default function Card_Producto(props) {
 							}
 						>
 							<div className="contenedor-titulos-productos titulo-elipsis">
-								<p className="font-prin titulo-producto">{productos.productoPromocion.nombre}</p>
-								<div
+								<p className=" titulo-producto">{productos.productoPromocion.nombre}</p>
+								{/* <div
 									className="font-peque description"
 									dangerouslySetInnerHTML={{
 										__html: DOMPurify.sanitize(productos.productoPromocion.descripcion)
 									}}
-								/>
+								/> */}
 							</div>
-							<div className="contenedor-precios-productos">
+							{/* <div className="contenedor-precios-productos">
 								<h2 className="font-peque precio-producto rebajado mr-2">
 									${formatoMexico(productos.productoPromocion.precio)}
 								</h2>
@@ -55,7 +55,7 @@ export default function Card_Producto(props) {
 										productos.productoPromocion.precio
 									)}%OFF
 								</p>
-							</div>
+							</div>  */}
 						</Card>
 					</Card.Grid>
 				</Link>
@@ -94,23 +94,23 @@ export default function Card_Producto(props) {
 							}
 						>
 							<div className="contenedor-titulos-productos titulo-elipsis">
-								<p className="font-prin titulo-producto">{productos.nombre}</p>
-								<div
+								<p className="titulo-producto">{productos.nombre}</p>
+								{/* <div
 									className="font-peque description "
 									dangerouslySetInnerHTML={{
 										__html: DOMPurify.sanitize(productos.descripcion)
 									}}
-								/>
+								/> */}
 							</div>
-							{!productos.promocion.length ? (
+							{/* {!productos.promocion.length ? (
 								<div className="contenedor-precios-productos">
-									<h3 className="precio-prin precio-rebaja">${formatoMexico(productos.precio)}</h3>
+									<h3 className="precio-prin precio-rebaja ">${formatoMexico(productos.precio)}</h3>
 								</div>
 							) : (
 								productos.promocion.map((promo) => {
 									return (
 										<div className="contenedor-precios-productos" key={promo._id}>
-											<h2 className="font-peque precio-producto  mr-2">
+											<h2 className="font-peque precio-producto mr-2">
 												${formatoMexico(productos.precio)}
 											</h2>
 											<h3 className="font-prin precio-rebaja d-inline mr-1">
@@ -122,7 +122,7 @@ export default function Card_Producto(props) {
 										</div>
 									);
 								})
-							)}
+							)} */}
 						</Card>
 					</Card.Grid>
 				</Link>
