@@ -425,10 +425,11 @@ function TallasCantidades(props) {
 				<div className="contenedor-p-seleccion-compra mb-4">
 					{disabled ? (
 						<p className="font-vista-prod disponibilidad-p mb-3">
-							En este momento no hay articulos disponibles
+							En este momento no hay combos disponibles
 						</p>
 					) : (
-						<p className="font-vista-prod mb-3">¡Articulos disponibles!</p>
+						// <p className="font-vista-prod mb-3">¡Articulos disponibles!</p>
+						null
 					)}
 					{categoria !== 'otros' ? <p className="mb-3 font-vista-prod font-weight-bold">Tallas:</p> : <p />}
 					<div>{render}</div>
@@ -492,34 +493,41 @@ function TallasCantidades(props) {
 				) : (
 					<div className="contenedor-button-vista">
 						<div>
+							<div>
+								<Button
+									className="d-flex justify-content-center align-items-center size-button-vista color-boton font-boton-vista"
+									//type="primary"
+									size="large"
+									onClick={() => Pedido()}
+									disabled={disabled}
+								>
+									<CoffeeOutlined  style={{ fontSize: 20 }} />
+									Ordenar ahora
+								</Button>
+							</div>
+							<div>
 							<Button
-								className="d-block size-button-vista color-boton font-boton-vista"
-								//type="primary"
-								size="large"
-								onClick={() => Pedido()}
-								disabled={disabled}
-							>
-								<CoffeeOutlined style={{ fontSize: 23 }} />
-								Ordenar ahora
-							</Button>
-							<Button
-								className="mt-3 d-block size-button-vista color-boton-sec font-boton-vista"
+								className="mt-3 d-flex justify-content-center align-items-center size-button-vista color-boton-sec font-boton-vista"
 								size="large"
 								onClick={() => showModal()}
 								disabled={disabled}
 							>
-								<HomeOutlined style={{ fontSize: 23 }} />
+								<HomeOutlined style={{ fontSize: 20 }} />
 								Recoger en sucursal
 							</Button>
+							
+							</div>
+							<div>
 							<Button
-								className="mt-3 d-block size-button-vista color-boton-sec font-boton-vista"
+								className="mt-3 d-flex justify-content-center align-items-center size-button-vista color-boton-sec font-boton-vista"
 								size="large"
 								disabled={disabled}
 								onClick={() => Carrito()}
 							>
-								<AlertOutlined  style={{ fontSize: 23 }} />
+								<AlertOutlined  style={{ fontSize: 20 }} />
 								Agregar a orden
 							</Button>
+							</div>
 						</div>
 					</div>
 				)}
@@ -566,10 +574,11 @@ function TallasCantidades(props) {
 									) : null}
 								</div>
 							</div>
-							{/* <div className="d-flex">
+
+							 <div className="d-flex">
 								<h6 className="mr-2">Ordenado por:</h6>
-								<p><b>{decoded.nombre}</b></p>
-							</div> */}
+								<p><b>{decoded ? decoded.nombre : null}</b></p>
+							 </div> 
 						</div>
 					</List.Item>
 				</List>

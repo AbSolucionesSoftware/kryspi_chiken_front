@@ -159,7 +159,7 @@ export default function PedidosUsuario(props) {
 	return (
 		<Spin spinning={loading}>
 			<div className="container">
-				<h4 className="text-center m-3">Mis Compras</h4>
+				<h4 className="text-center m-3">Mis Ordenes</h4>
 				<Tabs
 					centered
 					className="shadow bg-white rounded tabs-colors"
@@ -167,12 +167,12 @@ export default function PedidosUsuario(props) {
 					type="card"
 					size="large"
 				>
-					<TabPane tab="Mis compras" key="1">
+					<TabPane tab="Mis Pedidos" key="1">
 						<div>
 							{showInfo !== true ? (
 								<Result
 									status="404"
-									title="Parece que aun no tienes compras"
+									title="Parece que aun no tienes Ordenes"
 									subTitle="Ve y realiza tus compras. ¿Que esperas?"
 								/>
 							) : (
@@ -193,12 +193,12 @@ export default function PedidosUsuario(props) {
 							)}
 						</div>
 					</TabPane>
-					<TabPane tab="Mis apartados" key="2">
+					<TabPane tab="Mis Ordenes" key="2">
 						<div>
 							{showInfo !== true ? (
 								<Result
 									status="404"
-									title="Parece que aun no tienes compras"
+									title="Parece que aun no tienes Ordenes"
 									subTitle="Ve y realiza tus compras para poder verlas"
 								/>
 							) : (
@@ -275,7 +275,7 @@ function Pedido(props) {
 					}}
 				>
 					<EditOutlined />
-					Ver mi pedido
+					Ver mi orden
 				</Button>
 			]}
 		>
@@ -434,7 +434,7 @@ function Apartado({ apartado, showModal, setDetalleApartado, setElige, deleteApa
 						}}
 					>
 						<EditOutlined />
-						Ver mi apartado
+						Ver mi pedido
 					</Button>
 					<Button
 						className={
@@ -454,7 +454,7 @@ function Apartado({ apartado, showModal, setDetalleApartado, setElige, deleteApa
 						}}
 					>
 						<DeleteOutlined />
-						Eliminar apartado
+						Eliminar pedido
 					</Button>
 				</div>
 			]}

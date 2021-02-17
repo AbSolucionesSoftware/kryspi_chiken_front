@@ -12,16 +12,16 @@ const DetallesPedido = (props) => {
 
 	return (
 		<div className="card-p-pedidos">
-			<Divider className="text-center">Detalles del pedido</Divider>
+			<Divider className="text-center">Detalles de Orden</Divider>
 
 			<div className="row">
 				<div className="my-2 col-lg-4">
-					<h6 className="titulos-info-pedidos">ID del pedido: </h6>
+					<h6 className="titulos-info-pedidos">ID de Orden: </h6>
 					<p className=""> {detallePedido._id} </p>
 				</div>
 
 				<div className="my-2 col-lg-4">
-					<h6 className="titulos-info-pedidos">Fecha de pedido:</h6>
+					<h6 className="titulos-info-pedidos">Fecha de Orden:</h6>
 					<p className=""> {formatoFecha(detallePedido.createdAt)} </p>
 				</div>
 
@@ -36,7 +36,7 @@ const DetallesPedido = (props) => {
 					''
 				) : (
 					<div className="my-2 col-lg-4">
-						<h6 className="titulos-info-pedidos">Estatus del pedido:</h6>
+						<h6 className="titulos-info-pedidos">Estatus de Orden:</h6>
 						<p>
 							<Tag
 								className="my-2"
@@ -72,7 +72,7 @@ const DetallesPedido = (props) => {
 				</div>
 			</div>
 
-			<Divider className="text-center">Productos del pedido</Divider>
+			<Divider className="text-center">Productos de Orden</Divider>
 			<div className="row d-flex justify-content-center">{detallePedido.pedido.map((producto) => <Producto key={producto._id} producto={producto} />)}</div>
 
 			{detallePedido.pagado === false ? (

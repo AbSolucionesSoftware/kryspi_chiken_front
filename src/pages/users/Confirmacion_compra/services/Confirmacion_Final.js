@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Traer_pedido from './traer_pedido';
 import { Button, notification } from 'antd';
-import { ShoppingCartOutlined } from '@ant-design/icons';
+import { AlertOutlined } from '@ant-design/icons';
 import clienteAxios from '../../../../config/axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCcVisa, faCcMastercard } from '@fortawesome/free-brands-svg-icons';
@@ -228,7 +228,7 @@ export default function Confirmacion_Final(props) {
 						/>
 					</div>
 				</div>
-				<div className="d-flex justify-content-around align-items-center">
+				<div className="d-flex justify-content-center align-items-center">
 					{!pagoTarjeta ? (
 						<Button
 							size="large"
@@ -241,11 +241,11 @@ export default function Confirmacion_Final(props) {
 					) : null}
 					<Button
 						size="large"
-						className="color-boton d-flex justify-content-center align-items-center my-5"
+						className="ml-3 color-boton d-flex justify-content-center align-items-center my-5"
 						style={{ width: 200, textAlign: 'center' }}
 						onClick={() => (pagoTarjeta ? crearPago() : crearPagoEnEfectivo())}
 					>
-						<ShoppingCartOutlined style={{ fontSize: 20 }} /> COMPRAR AHORA
+						<AlertOutlined  style={{ fontSize: 20 }} /> Odenar ahora
 					</Button>
 				</div>
 			</div>

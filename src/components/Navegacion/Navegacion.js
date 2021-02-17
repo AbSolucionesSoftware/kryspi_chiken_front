@@ -5,7 +5,7 @@ import * as firebase from 'firebase/app';
 import './navegacion.scss';
 import 'firebase/auth';
 import 'firebase/firestore';
-import { SearchOutlined, MenuOutlined, ShoppingOutlined , SettingOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
+import { AlertOutlined, MenuOutlined, ShoppingOutlined , SettingOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import jwt_decode from 'jwt-decode';
 import clienteAxios from '../../config/axios';
 import RightMenu from './RightMenu';
@@ -139,7 +139,7 @@ const Navegacion = (props) => {
 									
 								</Menu.Item>
 								<Menu.Item className="nav-font-color nav-border-color font-foot-normal a6" key="/productos">
-									<div className="centrar-nav" >Productos</div>
+									<div className="centrar-nav" >Menú</div>
 									<Link to="/productos" />
 								</Menu.Item>
 								{ofertas.length ? (
@@ -222,11 +222,10 @@ const Navegacion = (props) => {
 								{!decoded || decoded.rol === true ? (
 									<Menu.Item key="" className="d-none" />
 								) : (
-									<Menu.Item className="nav-font-color-sesion a6" key="/shopping_cart">
+									<Menu.Item className="nav-font-color-sesion font-foot-normal a6" key="/shopping_cart">
 										<div className="centrar-nav" >
 											<Badge count={carrito}>
-												<ShoppingOutlined style={{ fontSize: 25 }} />
-												<Link to="/shopping_cart" />
+												<AlertOutlined style={{ fontSize: 26 }} /><Link to="/shopping_cart" />
 											</Badge>
 										</div>
 									</Menu.Item>
@@ -250,7 +249,7 @@ const Navegacion = (props) => {
 											<Menu.Item key="" className="d-none" />
 										) : (
 											<Menu.Item className="nav-font-color-sesion a6 font-foot-normal" key="/pedidos">
-												<ShoppingOutlined /> Mis compras
+												<ShoppingOutlined /> Mis ordenes
 												<Link to="/pedidos" />
 											</Menu.Item>
 										)}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Layout, Menu, Spin } from 'antd';
+import { Divider, Layout, Menu, Spin } from 'antd';
 import { withRouter } from 'react-router-dom';
 import './categorias.scss';
 import './preloading.scss';
@@ -82,6 +82,7 @@ const Categorias = (props) => {
 
 	const categorias_nav = categorias.map((categoria, index) => {
 		return (
+			<>
 			<SubMenu
 				key={categoria.categoria}
 				title={categoria.categoria}
@@ -95,6 +96,7 @@ const Categorias = (props) => {
 				}}
 
 			>
+
 				{categoria.subcCategoria.map((sub) => {
 					return (
 						<Menu.Item
@@ -110,10 +112,17 @@ const Categorias = (props) => {
 					);
 				})}
 			</SubMenu>
-			// 
+			{
+				categorias.length -1 !== index? (
+					<><Divider className="divisor" type="vertical"/></>
+				):(
+					null
+				)
+			}
+			</>
+
 		);
 	});
-
 	const temporadas_nav = temporadas.map((temporada, index) => {
 		if(temporada._id){
 			return (

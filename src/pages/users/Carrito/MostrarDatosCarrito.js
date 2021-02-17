@@ -4,7 +4,7 @@ import jwt_decode from 'jwt-decode';
 import { Link, withRouter } from 'react-router-dom';
 import './carrito.scss';
 import { List, Button, message, Result, Space } from 'antd';
-import { ShoppingCartOutlined } from '@ant-design/icons';
+import {  AlertOutlined,HomeOutlined } from '@ant-design/icons';
 import { formatoMexico } from '../../../config/reuserFunction';
 import { CarritoContext } from './context_carrito/context-carrito';
 import { obtenerStockCarrito } from './services/obtenerStock';
@@ -127,7 +127,7 @@ function MostrarDatosProductos(props) {
 	return (
 		<Spin spinning={loading}>
 			<div className="mt-5">
-				<h1 className="principal navbar-menu-general font-carrito">Bievenido a tu carrito {cliente.nombre}</h1>
+				<h1 className="principal navbar-menu-general font-carrito">Bievenido a tu pedido {cliente.nombre}</h1>
 				<List
 					itemLayout="horizontal"
 					size="large"
@@ -155,22 +155,26 @@ function MostrarDatosProductos(props) {
 					</div>
 					<div className="col-lg-5 d-flex justify-content-center align-items-center mt-4">
 						<Space>
+							<div>
 						<Button
 							size="large"
-							className="color-boton color-font-boton font-des-car"
+							className="d-flex justify-content-center align-items-center color-boton color-font-boton font-des-car "
 							style={{ width: 250, textAlign: 'center' }}
 							onClick={() => crearPedido()}
 						>
-							<ShoppingCartOutlined style={styles} /> Comprar ahora
+							<AlertOutlined style={styles} /> Ordenar ahora
 						</Button>
+						</div>
+						<div>
 						<Button
 							size="large"
-							className="color-boton color-font-boton font-des-car"
+							className="d-flex justify-content-center align-items-center color-boton color-font-boton font-des-car"
 							style={{ width: 250, textAlign: 'center' }}
 							onClick={() => apartarCarrito()}
 						>
-							<ShoppingCartOutlined style={styles} /> Apartar carrito
+							<HomeOutlined style={styles} /> Recoger en restaurante
 						</Button>
+						</div>
 						</Space>
 					</div>
 				</div>

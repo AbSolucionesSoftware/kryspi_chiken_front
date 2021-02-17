@@ -115,7 +115,7 @@ function BusquedaCategorias(props) {
 		<Fragment>
 			<Spin spinning={loading}>
 				<div className="my-4 mx-3">
-					<h3 className="d-inline mr-3 font-prin">{resultado.length} resultados en: </h3>
+					<h3 className="d-inline mr-3 font-prin">{resultado.length} resultados en el menu: </h3>
 					{todosProductos ? (
 						<h3  className="d-inline font-prin">Todos los productos</h3>
 					): (

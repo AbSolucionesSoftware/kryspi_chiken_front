@@ -30,7 +30,7 @@ function RightMenu(props) {
 				Inicio<Link to="/" />
 			</Menu.Item>
 			<Menu.Item key="/productos" className=" nav-font-color">
-				Productos<Link to="/productos" />
+				Menu<Link to="/productos" />
 			</Menu.Item>
 			{ofertas.length ? (
 				<Menu.Item key="/ofertas" className=" nav-font-color">
@@ -42,18 +42,18 @@ function RightMenu(props) {
 			<Menu.Item key="/blog" className=" nav-font-color">
 				Blog<Link to="/blog" />
 			</Menu.Item>
-			{tienda.length === 0 ? (
+			{/* {tienda.length === 0 ? (
 				<Menu.Item className="d-none" />
 			) : (
 				<Menu.Item key="/quienes_somos" className=" nav-font-color">
 					Quiénes somos<Link to="/quienes_somos" />
 				</Menu.Item>
-			)}
+			)} */}
 			{!decoded || decoded.rol === true ? (
 				<Menu.Item className="d-none" />
 			) : (
 				<Menu.Item key="/pedidos" className=" nav-font-color">
-					Mis pedidos<Link to="/pedidos" />
+					Mis ordenes<Link to="/pedidos" />
 				</Menu.Item>
 			)}
 			{token && decoded['rol'] === false ? (
