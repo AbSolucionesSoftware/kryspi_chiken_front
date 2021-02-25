@@ -340,35 +340,35 @@ function ListaCarrito(props) {
 						</Button>
 					</div>
 				) : (
-					<div className="d-flex justify-content-center">
+					<div className="row d-flex justify-content-center">
 						<div>
-						<Button
-							type="link"
-							className="d-flex justify-content-center align-items-center color-fonts font-des-car "
-							onClick={() => comprar()}
-							disabled={medidaDisponible !== '' ? true : false}
-						>
-							<AlertOutlined style={styles} />Ordenar individual
-						</Button>
+							<Button
+								type="link"
+								className="d-flex justify-content-center align-items-center color-fonts font-des-car "
+								onClick={() => comprar()}
+								disabled={medidaDisponible !== '' ? true : false}
+							>
+								<AlertOutlined style={styles} />Ordenar individual
+							</Button>
 						</div>
 						<div>
-						<Button 
-							type="link" 
-							className="d-flex justify-content-center align-items-center color-fonts font-des-car" 
-							onClick={() => eliminar()}
-						>
-							<DeleteOutlined style={styles} />Eliminar producto
-						</Button>
+							<Button 
+								type="link" 
+								className="d-flex justify-content-center align-items-center color-fonts font-des-car" 
+								onClick={() => eliminar()}
+							>
+								<DeleteOutlined style={styles} />Eliminar producto
+							</Button>
 						</div>
 						<div>
-						<Button
-							type="link"
-							className="d-flex justify-content-center align-items-center color-fonts font-des-car"
-							onClick={() => apartado()}
-							disabled={medidaDisponible !== '' ? true : false}
-						>
-							<HomeOutlined style={styles} />Recoger individual
-						</Button>
+							<Button
+								type="link"
+								className="d-flex justify-content-center align-items-center color-fonts font-des-car"
+								onClick={() => apartado()}
+								disabled={medidaDisponible !== '' ? true : false}
+							>
+								<HomeOutlined style={styles} />Recoger individual
+							</Button>
 						</div>
 					</div>
 				)}

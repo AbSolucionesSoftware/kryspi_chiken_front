@@ -154,28 +154,28 @@ function MostrarDatosProductos(props) {
 						</div>
 					</div>
 					<div className="col-lg-5 d-flex justify-content-center align-items-center mt-4">
-						<Space>
-							<div>
-						<Button
-							size="large"
-							className="d-flex justify-content-center align-items-center color-boton color-font-boton font-des-car "
-							style={{ width: 250, textAlign: 'center' }}
-							onClick={() => crearPedido()}
-						>
-							<AlertOutlined style={styles} /> Ordenar ahora
-						</Button>
+						<div className="row">
+							<div className="p-1">
+								<Button
+									size="large"
+									className="d-flex justify-content-center align-items-center color-boton color-font-boton font-des-car "
+									style={{ width: 250, textAlign: 'center' }}
+									onClick={() => crearPedido()}
+								>
+									<AlertOutlined style={styles} /> Ordenar ahora
+								</Button>
+							</div>
+							<div className="p-1">
+								<Button
+									size="large"
+									className="d-flex justify-content-center align-items-center color-boton color-font-boton font-des-car"
+									style={{ width: 250, textAlign: 'center' }}
+									onClick={() => apartarCarrito()}
+								>
+									<HomeOutlined style={styles} /> Recoger en restaurante
+								</Button>
+							</div>
 						</div>
-						<div>
-						<Button
-							size="large"
-							className="d-flex justify-content-center align-items-center color-boton color-font-boton font-des-car"
-							style={{ width: 250, textAlign: 'center' }}
-							onClick={() => apartarCarrito()}
-						>
-							<HomeOutlined style={styles} /> Recoger en restaurante
-						</Button>
-						</div>
-						</Space>
 					</div>
 				</div>
 			</div>

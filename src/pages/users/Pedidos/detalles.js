@@ -9,7 +9,6 @@ const { Meta } = Card;
 
 const DetallesPedido = (props) => {
 	const { detallePedido } = props;
-
 	return (
 		<div className="card-p-pedidos">
 			<Divider className="text-center">Detalles de Orden</Divider>
@@ -66,9 +65,14 @@ const DetallesPedido = (props) => {
 					</div>
 				</div>
 
-				<div className="my-2 ">
+				<div className="my-2 col-lg-2">
 					<h6 className="titulos-info-pedidos">Total:</h6>
 					<p className=""> $ {formatoMexico(detallePedido.total)} </p>
+				</div>
+
+				<div className="my-2 col-lg-2">
+					<h6 className="titulos-info-pedidos">Tipo de pago:</h6>
+					<p className=""> {detallePedido.tipo_pago} </p>
 				</div>
 			</div>
 

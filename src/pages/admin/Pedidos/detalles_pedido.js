@@ -5,7 +5,6 @@ import aws from '../../../config/aws';
 
 const DetallesPedido = (props) => {
 	const pedido = props.datosDetalle;
-
 	return (
 		<div className="card-p-pedidos">
 			<Divider className="text-center">Detalles del pedido</Divider>
@@ -38,6 +37,10 @@ const DetallesPedido = (props) => {
 			<div className="my-2">
 				<h6 className="titulos-info-pedidos">Cantidad:</h6>
 				<p className="data-info-pedidos">{pedido.pedido.length}</p>
+			</div>
+			<div className="my-2">
+				<h6 className="titulos-info-pedidos">Tipo de Pago:</h6>
+				<p className="data-info-pedidos">{pedido.tipo_pago}</p>
 			</div>
 			<div className="my-2">
 				<h6 className="titulos-info-pedidos">Estado:</h6>

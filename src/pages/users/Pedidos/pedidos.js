@@ -10,6 +10,7 @@ import { EditOutlined, DeleteOutlined, ExclamationCircleOutlined } from '@ant-de
 import aws from '../../../config/aws';
 import Spin from '../../../components/Spin';
 import ApartadoMultiple from './apartadoMultiple';
+import detalleApartado from './detalleApartado';
 
 const { TabPane } = Tabs;
 const { confirm } = Modal;
@@ -258,8 +259,7 @@ export default function PedidosUsuario(props) {
 }
 
 function Pedido(props) {
-	const { pedido, showModal, setDetallePedido, setElige } = props;
-
+	const { pedido, showModal, setDetallePedido, setElige, detallePedido } = props;
 	return (
 		<List.Item
 			key={pedido._id}
@@ -285,9 +285,14 @@ function Pedido(props) {
 					<span className="text-primary"> x {pedido.pedido.length}</span>
 				</p>
 				<p className="h6">
+					<span className="font-weight-bold">Tipo de pago: </span>
+					<span className="text-primary"> {pedido.tipo_pago}</span>
+				</p>
+				<p className="h6">
 					<span className="font-weight-bold">Total:</span>{' '}
 					<span className="text-success"> $ {formatoMexico(pedido.total)}</span>{' '}
 				</p>
+				
 				{/* <p className="h6"><span className="font-weight-bold">Pedido el:</span> {formatoFecha(pedido.createdAt)}</p> */}
 				<p className="m-0" style={{ fontSize: '15px' }}>
 					<span className="font-weight-bold">Pedido:</span>
@@ -354,6 +359,10 @@ function Pedido(props) {
 							<p className="m-0" style={{ fontSize: '15px' }}>
 								<span className="font-weight-bold">Total de la compra:</span>
 								<span className="text-success"> $ {formatoMexico(pedido.total)}</span>{' '}
+							</p>
+							<p className="h6">
+								<span className="font-weight-bold">Tipo de pago: </span> <br/>
+								<span > {pedido.tipo_pago}</span>
 							</p>
 							<p className="m-0" style={{ fontSize: '15px' }}>
 								<span className="font-weight-bold">Fecha de pedido:</span>{' '}

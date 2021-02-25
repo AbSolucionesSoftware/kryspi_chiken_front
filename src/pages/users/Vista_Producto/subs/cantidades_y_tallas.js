@@ -516,7 +516,6 @@ function TallasCantidades(props) {
 								<HomeOutlined style={{ fontSize: 20 }} />
 								Recoger en sucursal
 							</Button>
-							
 							</div>
 							<div>
 							<Button
