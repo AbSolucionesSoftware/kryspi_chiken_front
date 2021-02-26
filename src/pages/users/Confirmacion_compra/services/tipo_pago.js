@@ -24,9 +24,9 @@ export default function TipoPago({ prev, current, setCurrent, pagoTarjeta, setPa
                         <Radio className="d-flex justify-content-center align-items-center my-4" value={false}>
                             <h5>Pago en efectivo</h5>
                         </Radio>
-                        <Radio className="d-flex justify-content-center align-items-center my-4" value={true}>
+                        {/* <Radio className="d-flex justify-content-center align-items-center my-4" value={true}>
                             <h5>Pago con tarjeta</h5>
-                        </Radio>
+                        </Radio> */}
                     </Radio.Group>
                 </div>
             </div>
