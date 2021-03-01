@@ -67,6 +67,10 @@ const DetallesPedido = (props) => {
 				<h6 className="titulos-info-pedidos">Email:</h6>
 				<p className="data-info-pedidos">{pedido.cliente.email}</p>
 			</div>
+			<div className="my-2">
+				<h6 className="titulos-info-pedidos">Telefono:</h6>
+				<p className="data-info-pedidos">{pedido.cliente.telefono}</p>
+			</div>
 			{pedido.cliente.direccion.map((direccion) => {
 				return (
 					<div className="my-2" key={direccion._id}>
