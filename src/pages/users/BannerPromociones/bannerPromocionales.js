@@ -8,6 +8,7 @@ import Banner_Doble from './BannerCuadrados/bannerDoble';
 import Banner_Triple from './BannerCuadrados/bannerTriple';
 
 export default function Banner_Promocionales({ banner, imagenLocal }) {
+	if(!banner) return null
 
 	const render = banner.map((banner, index) => {
 		if (banner.estilo === 1) {

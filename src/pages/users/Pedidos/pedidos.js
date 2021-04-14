@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import clienteAxios from '../../../config/axios';
 import jwt_decode from 'jwt-decode';
 import DetallesPedido from './detalles';
@@ -11,6 +11,8 @@ import aws from '../../../config/aws';
 import Spin from '../../../components/Spin';
 import ApartadoMultiple from './apartadoMultiple';
 import detalleApartado from './detalleApartado';
+import { makeStyles } from '@material-ui/styles';
+import { MenuContext } from '../../../context/carritoContext';
 
 const { TabPane } = Tabs;
 const { confirm } = Modal;
@@ -23,6 +25,7 @@ export default function PedidosUsuario(props) {
 	const [ loading, setLoading ] = useState(false);
 	const [ showInfo, setshowInfo ] = useState(false);
 	const [ estado, setEstado ] = useState(false);
+	const { colores } = useContext(MenuContext);
 
 	//modal del pedido
 	const [ detallePedido, setDetallePedido ] = useState({});
@@ -157,10 +160,17 @@ export default function PedidosUsuario(props) {
 		});
 	};
 
+	const useStyles = makeStyles({
+		text: {
+			color: colores.bodyPage.text
+		}
+	});
+	const classes = useStyles();
+
 	return (
 		<Spin spinning={loading}>
 			<div className="container">
-				<h4 className="text-center m-3">Mis Ordenes</h4>
+				<h4 className={"text-center m-3 " + classes.text}>Mis Ordenes</h4>
 				<Tabs
 					centered
 					className="shadow bg-white rounded tabs-colors"
