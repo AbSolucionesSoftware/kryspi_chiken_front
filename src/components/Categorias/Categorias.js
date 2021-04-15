@@ -50,7 +50,7 @@ const Categorias = (props) => {
 		return null;
 	}
 
-
+	console.log(datosContx.navbar.filtroNav);
 	const categorias_nav = datosContx.navbar.filtroNav.map((categoria, index) => {
 		return (
 			<>
@@ -84,7 +84,7 @@ const Categorias = (props) => {
 				})}
 			</SubMenu>
 			{
-				datosContx.navbar.filtroNav.length -1 !== index? (
+				datosContx.navbar.filtroNav.length - 1 !== index? (
 					<><Divider className={"divisor " + classes.divider} type="vertical"/></>
 				):(
 					null
