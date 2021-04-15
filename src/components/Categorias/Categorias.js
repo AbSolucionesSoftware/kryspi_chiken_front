@@ -50,7 +50,6 @@ const Categorias = (props) => {
 		return null;
 	}
 
-	console.log(datosContx.navbar.filtroNav);
 	const categorias_nav = datosContx.navbar.filtroNav.map((categoria, index) => {
 		return (
 			<>
@@ -83,15 +82,7 @@ const Categorias = (props) => {
 					);
 				})}
 			</SubMenu>
-			{
-				datosContx.navbar.filtroNav.length - 1 !== index? (
-					<><Divider className={"divisor " + classes.divider} type="vertical"/></>
-				):(
-					null
-				)
-			}
 			</>
-
 		);
 	});
 	/* const temporadas_nav = temporadas.map((temporada, index) => {
@@ -101,7 +92,6 @@ const Categorias = (props) => {
 					className="nav-font-color-categorias font-cates"
 					key={index}
 					onClick={() => {
-						props.history.push(`/filtros/${temporada._id}/${categoriaSeleccionada}/${subcategoriaSeleccionada}/${generoSeleccionado}`);
 						setTemporadaSeleccionada(temporada._id);
 					}}
 				>
