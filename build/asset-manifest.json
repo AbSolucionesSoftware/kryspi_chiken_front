@@ -1,19 +1,29 @@
 {
   "files": {
+<<<<<<< HEAD
     "main.css": "/static/css/main.f7e29e8c.chunk.css",
     "main.js": "/static/js/main.b8ee10c9.chunk.js",
     "main.js.map": "/static/js/main.b8ee10c9.chunk.js.map",
+=======
+    "main.css": "/static/css/main.29790b8f.chunk.css",
+    "main.js": "/static/js/main.d46774a0.chunk.js",
+    "main.js.map": "/static/js/main.d46774a0.chunk.js.map",
+>>>>>>> 4486b3157bae490124e5c6a9a8a59ea13aa37507
     "runtime-main.js": "/static/js/runtime-main.5aecc905.js",
     "runtime-main.js.map": "/static/js/runtime-main.5aecc905.js.map",
     "static/css/2.13cf92e7.chunk.css": "/static/css/2.13cf92e7.chunk.css",
-    "static/js/2.fd46431e.chunk.js": "/static/js/2.fd46431e.chunk.js",
-    "static/js/2.fd46431e.chunk.js.map": "/static/js/2.fd46431e.chunk.js.map",
+    "static/js/2.fdde49dc.chunk.js": "/static/js/2.fdde49dc.chunk.js",
+    "static/js/2.fdde49dc.chunk.js.map": "/static/js/2.fdde49dc.chunk.js.map",
     "index.html": "/index.html",
+<<<<<<< HEAD
     "precache-manifest.388e9921b4b5de57fa13ba30fa8ecbe4.js": "/precache-manifest.388e9921b4b5de57fa13ba30fa8ecbe4.js",
+=======
+    "precache-manifest.ed9da7e82e301e912d92adf1c42ad957.js": "/precache-manifest.ed9da7e82e301e912d92adf1c42ad957.js",
+>>>>>>> 4486b3157bae490124e5c6a9a8a59ea13aa37507
     "service-worker.js": "/service-worker.js",
     "static/css/2.13cf92e7.chunk.css.map": "/static/css/2.13cf92e7.chunk.css.map",
-    "static/css/main.f7e29e8c.chunk.css.map": "/static/css/main.f7e29e8c.chunk.css.map",
-    "static/js/2.fd46431e.chunk.js.LICENSE.txt": "/static/js/2.fd46431e.chunk.js.LICENSE.txt",
+    "static/css/main.29790b8f.chunk.css.map": "/static/css/main.29790b8f.chunk.css.map",
+    "static/js/2.fdde49dc.chunk.js.LICENSE.txt": "/static/js/2.fdde49dc.chunk.js.LICENSE.txt",
     "static/media/Animacion_Tarjeta.scss": "/static/media/bg-tarjeta-01.3c6258e5.jpg",
     "static/media/chip-tarjeta.png": "/static/media/chip-tarjeta.6611645b.png",
     "static/media/especial1.png": "/static/media/especial1.5c60fb7f.png",
@@ -31,8 +41,14 @@
   "entrypoints": [
     "static/js/runtime-main.5aecc905.js",
     "static/css/2.13cf92e7.chunk.css",
+<<<<<<< HEAD
     "static/js/2.fd46431e.chunk.js",
     "static/css/main.f7e29e8c.chunk.css",
     "static/js/main.b8ee10c9.chunk.js"
+=======
+    "static/js/2.fdde49dc.chunk.js",
+    "static/css/main.29790b8f.chunk.css",
+    "static/js/main.d46774a0.chunk.js"
+>>>>>>> 4486b3157bae490124e5c6a9a8a59ea13aa37507
   ]
 }
