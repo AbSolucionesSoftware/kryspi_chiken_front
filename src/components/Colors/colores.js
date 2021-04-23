@@ -228,12 +228,12 @@ export default function ColorCustomizer() {
 			navPrimary: {
 				text: '#000000',
 				background: '#FFFFFF',
-				hoverText: '#e28000'
+				hoverText: '#a39c9c'
 			},
 			navSecondary: {
 				text: '#000000',
 				background: '#000000',
-				hoverText: '#ffc340'
+				hoverText: '#a39c9c'
 			},
 			bodyPage: {
 				text: '#000000',
@@ -241,7 +241,7 @@ export default function ColorCustomizer() {
 				hoverText: '#000000',
 				card: {
 					text: '#000000',
-					background: '#ffffff'
+					background: '#F7F7F7'
 				}
 			},
 			footer: {
@@ -268,12 +268,13 @@ export default function ColorCustomizer() {
 				handleVisibleChange();
 			})
 			.catch((res) => {
-				console.log(res.response);
+				console.log(res);
 				setLoading(false);
 				notification.error({
 					message: 'Hubo un error',
 					duration: 2
 				});
+				handleVisibleChange();
 			});
 	};
 
@@ -304,7 +305,7 @@ export default function ColorCustomizer() {
 	const content_picker = (
 		<div>
 			<div className="row d-flex justify-content-around mb-2">
-				<div className="col-md-3">
+				<div className="col-md-2">
 					<h6>Navegación</h6>
 					<Radio.Group onChange={handleChangeComponent} value={component}>
 						<Radio style={styles.radio_style} value="navBackground">
@@ -318,8 +319,8 @@ export default function ColorCustomizer() {
 						</Radio>
 					</Radio.Group>
 				</div>
-				{/* <div className="col-md-2">
-					<h6>Categorias</h6>
+				<div className="col-md-2">
+					<h6>Búsqueda</h6>
 					<Radio.Group onChange={handleChangeComponent} value={component}>
 						<Radio style={styles.radio_style} value="navSecBackground">
 							Color fondo
@@ -331,8 +332,8 @@ export default function ColorCustomizer() {
 							Color activo
 						</Radio>
 					</Radio.Group>
-				</div> */}
-				<div className="col-md-3">
+				</div>
+				<div className="col-md-2">
 					<h6>Fondo</h6>
 					<Radio.Group onChange={handleChangeComponent} value={component}>
 						<Radio style={styles.radio_style} value="bodyBackground">
@@ -346,7 +347,7 @@ export default function ColorCustomizer() {
 						</Radio>
 					</Radio.Group>
 				</div>
-				<div className="col-md-3">
+				<div className="col-md-2">
 					<h6>Productos</h6>
 					<Radio.Group onChange={handleChangeComponent} value={component}>
 						<Radio style={styles.radio_style} value="cardBackground">
@@ -357,7 +358,7 @@ export default function ColorCustomizer() {
 						</Radio>
 					</Radio.Group>
 				</div>
-				<div className="col-md-3">
+				<div className="col-md-2">
 					<h6>Footer</h6>
 					<Radio.Group onChange={handleChangeComponent} value={component}>
 						<Radio style={styles.radio_style} value="footerBackground">

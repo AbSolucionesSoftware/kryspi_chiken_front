@@ -25,16 +25,16 @@ export default function detalleApartado(props) {
 
 	return (
 		<div className="card-p-pedidos">
-			<Divider className="text-center">Detalles de orden</Divider>
+			<Divider className="text-center">Detalles del Apartado</Divider>
 
 			<div className="row">
 				<div className="my-2 col-lg-4">
-					<h6 className="titulos-info-pedidos">ID de Orden: </h6>
+					<h6 className="titulos-info-pedidos">ID del Apartado: </h6>
 					<p className=""> {detalleApartado._id} </p>
 				</div>
 
 				<div className="my-2 col-lg-4">
-					<h6 className="titulos-info-pedidos">Fecha de Orden:</h6>
+					<h6 className="titulos-info-pedidos">Fecha de apartado:</h6>
 					<p className=""> {formatoFecha(detalleApartado.createdAt)} </p>
 				</div>
 
@@ -58,15 +58,15 @@ export default function detalleApartado(props) {
 							}
 						>
 							{detalleApartado.estado === 'ACEPTADO' ? (
-								'Orden aceptada'
+								'Apartado aceptado'
 							) : detalleApartado.estado === 'PROCESANDO' ? (
-								'Orden en proceso'
+								'Apartado en proceso'
 							) : detalleApartado.estado === 'ENVIADO' ? (
-								'Orden enviada'
+								'Apartado enviado'
 							) : detalleApartado.estado === 'ENTREGADO' ? (
-								'Orden entregada'
+								'Apartado entregado'
 							) : (
-								'Orden cancelada'
+								'Apartado cancelado'
 							)}
 						</Tag>
 					</p>
@@ -104,7 +104,7 @@ export default function detalleApartado(props) {
 				)}
 			</div>
 
-			<Divider className="text-center">Productos de Orden</Divider>
+			<Divider className="text-center">Productos del apartado</Divider>
 
 			{detalleApartado.apartadoMultiple && detalleApartado.apartadoMultiple.length !== 0 ? (
 				<div className="row d-flex justify-content-center">{multiple}</div>
@@ -116,7 +116,7 @@ export default function detalleApartado(props) {
 
 			{detalleApartado.tipoEntrega === 'ENVIO' ? detalleApartado.estado === 'ENVIADO' ? (
 				<div>
-					<Divider className="text-center">Seguimiento de  Orden</Divider>
+					<Divider className="text-center">Seguimiento de Apartado</Divider>
 					<Result
 						icon={<FontAwesomeIcon icon={faBus} style={{ fontSize: '50px' }} />}
 						title={

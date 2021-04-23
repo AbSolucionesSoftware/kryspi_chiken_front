@@ -21,7 +21,7 @@ export default function ApartadoMultiple({ apartado, showModal, setDetalleAparta
 						}}
 					>
 						<EditOutlined />
-						Ver mi pedido
+						Ver mi apartado
 					</Button>
 					<Button
 						className={
@@ -41,7 +41,7 @@ export default function ApartadoMultiple({ apartado, showModal, setDetalleAparta
 						}}
 					>
 						<DeleteOutlined />
-						Eliminar pedido
+						Eliminar apartado
 					</Button>
 				</div>
 			]}
@@ -202,7 +202,7 @@ export default function ApartadoMultiple({ apartado, showModal, setDetalleAparta
 									{apartado.mensaje_admin ? (
 										apartado.mensaje_admin
 									) : (
-										'Tu orden esta en procesado, si tienes alguna duda no dudes en contactarnos!!'
+										'Tu pedido esta en procesado, si tienes alguna duda no dudes en contactarnos!!'
 									)}
 								</p>
 							</div>

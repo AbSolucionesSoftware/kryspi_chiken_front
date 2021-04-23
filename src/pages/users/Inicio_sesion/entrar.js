@@ -1,31 +1,31 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import Registro from '../Registro/registro'
 import Login from '../Login/login'
 import Firebase from '../../../components/Firebase/firebase'
 import { Tabs, Divider } from 'antd'
 import './entrar.scss'
-import { withRouter } from 'react-router-dom'
-import { MenuContext } from '../../../context/carritoContext'
-import { makeStyles } from '@material-ui/styles'
+import { withRouter } from 'react-router-dom';
+import { makeStyles } from '@material-ui/styles';
+import { MenuContext } from '../../../context/carritoContext';
 
 const { TabPane } = Tabs;
 
 function Entrar(props) {
     const token = localStorage.getItem('token')
-    const { colores } = useContext(MenuContext);
+    
 
     useEffect( () => {
         if(token){
             props.history.push('/')
         }
     })
-
+    const { colores } = useContext(MenuContext);
     const useStyles = makeStyles({
 		text: {
-			color: colores.bodyPage.text
-		}
+			color: `${colores.bodyPage.text}!important`
+		},
 	});
-	const classes = useStyles();
+    const classes = useStyles();
 
     return(
         <div>

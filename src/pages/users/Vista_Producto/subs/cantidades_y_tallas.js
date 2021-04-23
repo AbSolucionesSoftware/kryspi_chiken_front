@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { InputNumber, Button, Form, Badge, Divider, notification, Modal, Select, Alert, List, Avatar } from 'antd';
-import { AlertOutlined, CoffeeOutlined, HomeOutlined, WhatsAppOutlined } from '@ant-design/icons';
+import { ShoppingCartOutlined, TagsOutlined, BellOutlined, WhatsAppOutlined } from '@ant-design/icons';
 import jwt_decode from 'jwt-decode';
 import { AgregarCarrito, AgregarApartado, AgregarPedido } from './services';
-import { formatoMexico } from '../../../../config/reuserFunction';
+import { formatoMexico, verificarDiasLaborales } from '../../../../config/reuserFunction';
 import { withRouter } from 'react-router-dom';
 import { MenuContext } from '../../../../context/carritoContext';
-/* import DatosCliente from './datos_cliente'; */
+import DatosCliente from './datos_cliente';
 import clienteAxios from '../../../../config/axios';
 import aws from '../../../../config/aws';
 import Spin from '../../../../components/Spin';
@@ -24,7 +24,7 @@ const formItemLayout = {
 const { Option } = Select;
 
 function TallasCantidades(props) {
-	const { active, setActive } = useContext(MenuContext);
+	const { active, setActive, datosContx } = useContext(MenuContext);
 	const productos = props.producto;
 	const [ categoria, setCategoria ] = useState();
 	/* 	const [ cantidad, setCantidad ] = useState(); */
@@ -34,12 +34,13 @@ function TallasCantidades(props) {
 	const [ render, setRender ] = useState([]);
 	const [ validateStatus, setValidateStatus ] = useState('validating');
 	const [ cantidadFinal, setCantidadFinal ] = useState(1);
-	const [ tipoEnvio, setTipoEnvio ] = useState('REGOGIDO');
+	const [ tipoEnvio, setTipoEnvio ] = useState('');
 	const [ loading, setLoading ] = useState(false);
 	const [ visible, setVisible ] = useState(false);
 	const [ disabled, setDisabled ] = useState(false);
-	/* 	const [ datosUser, setDatosUser ] = useState([]); */
+/* 	const [ datosUser, setDatosUser ] = useState([]); */
 	const [ tienda, setTienda ] = useState([]);
+	const [ laboral, setLaboral ] = useState(false);
 
 	const token = localStorage.getItem('token');
 	var decoded = Jwt(token);
@@ -82,6 +83,11 @@ function TallasCantidades(props) {
 			})
 			.catch((err) => {});
 	} */
+
+	useEffect(() => {
+		/* verificar dia No laboral */
+		setLaboral(verificarDiasLaborales(datosContx));
+	}, [datosContx])
 
 	useEffect(() => {
 		if (token) {
@@ -216,8 +222,15 @@ function TallasCantidades(props) {
 	};
 
 	const handleOk = () => {
-		setVisible(false);
-		Apartado();
+		if (!tipoEnvio) {
+			notification.info({
+				message: 'Selecciona un tipo de envio',
+				duration: 2
+			});
+		} else {
+			setVisible(false);
+			Apartado();
+		}
 	};
 
 	const handleCancel = (e) => {
@@ -227,13 +240,12 @@ function TallasCantidades(props) {
 	function modalMensaje() {
 		Modal.success({
 			icon: '',
-			closable: true,
 			content: (
 				<div className="text-center">
-					<p style={{ fontSize: 18 }}>¡Tu orden a sido recibida!</p>
+					<p style={{ fontSize: 18 }}>¡Tu apartado a sido recibido y sera despachado próximamente!</p>
 					{tienda.length !== 0 && tienda.telefono ? (
 						<div className="text-center">
-							<p style={{ fontSize: 18 }}>Si tienes dudas o algún problema te puedes comunicar al</p>
+							<p style={{ fontSize: 18 }}>Si tienes dudas te puedes comunicar al</p>
 							<p
 								style={{ fontSize: 18 }}
 								className="d-flex justify-content-center align-items-center font-weight-bold"
@@ -254,7 +266,7 @@ function TallasCantidades(props) {
 					)}
 				</div>
 			),
-			okButtonProps: {className: "color-boton"}
+			onOk() {}
 		});
 	}
 
@@ -311,9 +323,9 @@ function TallasCantidades(props) {
 
 	async function Apartado() {
 		let precio;
-		if (productos.promocion.length !== 0) {
+		if(productos.promocion.length !== 0){
 			precio = productos.promocion[0].precioPromocion;
-		} else {
+		}else{
 			precio = productos.precio;
 		}
 		////AGREGAR APARTADO
@@ -425,12 +437,9 @@ function TallasCantidades(props) {
 			<div className="contenedor-p-seleccion-compra">
 				<div className="contenedor-p-seleccion-compra mb-4">
 					{disabled ? (
-						<p className="font-vista-prod disponibilidad-p mb-3">
-							En este momento no hay combos disponibles
-						</p>
+						<p className="font-vista-prod disponibilidad-p mb-3">En este momento no hay articulos disponibles</p>
 					) : (
-						// <p className="font-vista-prod mb-3">¡Articulos disponibles!</p>
-						null
+						<p className="font-vista-prod mb-3">¡Articulos disponibles!</p>
 					)}
 					{categoria !== 'otros' ? <p className="mb-3 font-vista-prod font-weight-bold">Tallas:</p> : <p />}
 					<div>{render}</div>
@@ -494,46 +503,43 @@ function TallasCantidades(props) {
 				) : (
 					<div className="contenedor-button-vista">
 						<div>
-							<div>
-								<Button
-									className="d-flex justify-content-center align-items-center size-button-vista color-boton font-boton-vista"
-									//type="primary"
-									size="large"
-									onClick={() => Pedido()}
-									disabled={disabled}
-								>
-									<CoffeeOutlined  style={{ fontSize: 20 }} />
-									Ordenar ahora
-								</Button>
-							</div>
-							<div>
 							<Button
-								className="mt-3 d-flex justify-content-center align-items-center size-button-vista color-boton-sec font-boton-vista"
+								className="d-block size-button-vista color-boton font-vista-prod"
+								//type="primary"
+								size="large"
+								onClick={() => Pedido()}
+								disabled={disabled || laboral}
+							>
+								<TagsOutlined style={{ fontSize: 20 }} />
+								Comprar ahora
+							</Button>
+							<Button
+								className="mt-3 d-block size-button-vista color-boton-sec font-vista-prod"
 								size="large"
 								onClick={() => showModal()}
-								disabled={disabled}
+								disabled={disabled || laboral}
 							>
-								<HomeOutlined style={{ fontSize: 20 }} />
-								Recoger en sucursal
+								<BellOutlined style={{ fontSize: 20 }} />
+								Apartar
 							</Button>
-							</div>
-							<div>
 							<Button
-								className="mt-3 d-flex justify-content-center align-items-center size-button-vista color-boton-sec font-boton-vista"
+								className="mt-3 d-block size-button-vista color-boton-sec font-vista-prod"
 								size="large"
 								disabled={disabled}
 								onClick={() => Carrito()}
 							>
-								<AlertOutlined  style={{ fontSize: 20 }} />
-								Agregar a orden
+								<ShoppingCartOutlined style={{ fontSize: 20 }} />
+								Agregar al carrito
 							</Button>
-							</div>
 						</div>
+
 					</div>
+
+					
 				)}
 			</div>
 			<Modal
-				title="Ordenar para retirar en restaurant"
+				title="Aparta tu producto"
 				visible={visible}
 				/* onOk={handleOk} */
 				onCancel={handleCancel}
@@ -548,7 +554,7 @@ function TallasCantidades(props) {
 							<Avatar size={64} src={aws + productos.imagen} />
 						</div>
 						<div className="col-lg-10">
-							<h5 className="font-secun">{productos.nombre}</h5>
+							<h5 className="font-secun" >{productos.nombre}</h5>
 							<div className="row">
 								<div className="col-lg-3">
 									<h6 className="font-vista-prod">Cantidad: {cantidadFinal}</h6>
@@ -565,37 +571,52 @@ function TallasCantidades(props) {
 									<div className="d-none" />
 								)}
 								<div className="col-lg-3">
-									{productos.length !== 0 ? productos.promocion.length === 0 ? (
+									{!productos.promocion ? (
 										<h6>Precio: ${formatoMexico(productos.precio)}</h6>
 									) : (
 										productos.promocion.map((res) => {
 											return <h6 key={res._id}>Precio: ${formatoMexico(res.precioPromocion)}</h6>;
 										})
-									) : null}
+									)}
 								</div>
 							</div>
-
-							 <div className="d-flex">
-								<h6 className="mr-2">Ordenado por:</h6>
-								<p><b>{decoded ? decoded.nombre : null}</b></p>
-							 </div> 
 						</div>
 					</List.Item>
 				</List>
 				<div className="d-flex justify-content-end mt-3 border-bottom">
-					{productos.length !== 0 ? productos.promocion.length === 0 ? (
+					{!productos.promocion ? (
 						<h4>Total: ${formatoMexico(cantidadFinal * productos.precio)}</h4>
 					) : (
 						productos.promocion.map((res) => {
 							return <h4 key={res._id}>Total: ${formatoMexico(cantidadFinal * res.precioPromocion)}</h4>;
 						})
-					) : null}
+					)}
 				</div>
-				<div className="d-flex justify-content-end align-items-center mt-1">
-					<Button className="color-boton color-font-boton" size="large" style={{ width: 170 }} onClick={() => handleOk()}>
-						Ordenar
-					</Button>
+				<div className="row mt-4">
+					<div className="col-lg-6 text-center">
+						<h6 className="font-vista-prod font-weight-bold">Elegir tipo de envío: </h6>
+						<div>
+							<Select style={{ width: 200 }} placeholder="Selecciona un tipo" onChange={obtenerTipoEnvio}>
+								<Option value="ENVIO">Envío por paquetería</Option>
+								<Option value="REGOGIDO">Recoger a sucursal</Option>
+							</Select>
+						</div>
+					</div>
+					<div className="col-lg-6">
+						<Alert description="Para apartar un producto completa tus datos." type="info" showIcon />
+					</div>
 				</div>
+				<Divider  className="font-vista-prod">Tus datos</Divider>
+				{decoded && decoded._id ? (
+					<DatosCliente
+						token={token}
+						clienteID={decoded._id}
+						tipoEnvio={tipoEnvio}
+						enviarDatos={[ handleOk ]}
+					/>
+				) : (
+					<div />
+				)}
 			</Modal>
 		</Spin>
 	);

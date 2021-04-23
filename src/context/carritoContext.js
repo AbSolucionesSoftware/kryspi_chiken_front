@@ -11,12 +11,12 @@ export const MenuProvider = ({ children }) => {
     navPrimary: {
       text: '#000000',
       background: '#FFFFFF',
-      hoverText: '#e28000',
+      hoverText: '#a39c9c',
     },
     navSecondary: {
       text: '#000000',
       background: '#000000',
-      hoverText: '#ffc340',
+      hoverText: '#a39c9c',
     },
     bodyPage: {
       text: '#000000',
@@ -24,7 +24,7 @@ export const MenuProvider = ({ children }) => {
       hoverText: '#000000',
       card: {
         text: '#000000',
-        background: '#ffffff'
+        background: '#F7F7F7'
       }
     },
     footer: {
@@ -34,7 +34,7 @@ export const MenuProvider = ({ children }) => {
   });
 
   return (
-    <MenuContext.Provider value={{active,setActive, loading, setLoading, reloadFilter, setReloadFilter, datosContx, setDatosContx, colores, setColores}}>
+    <MenuContext.Provider value={{active,setActive, loading, setLoading, reloadFilter, setReloadFilter, datosContx, setDatosContx, colores, setColores }}>
       {children}
     </MenuContext.Provider>
   );

@@ -4,9 +4,10 @@ import jwt_decode from 'jwt-decode';
 import { Link, withRouter } from 'react-router-dom';
 import './carrito.scss';
 import { List, Button, message, Result, Space } from 'antd';
-import {  AlertOutlined,HomeOutlined } from '@ant-design/icons';
-import { formatoMexico } from '../../../config/reuserFunction';
+import { ShoppingCartOutlined } from '@ant-design/icons';
+import { formatoMexico, verificarDiasLaborales } from '../../../config/reuserFunction';
 import { CarritoContext } from './context_carrito/context-carrito';
+import { MenuContext } from '../../../context/carritoContext.js';
 import { obtenerStockCarrito } from './services/obtenerStock';
 import { AgregarPedidoCarrito } from './services/pedido_carrito';
 import ApartadoCarrito from './services/apartado_carrito';
@@ -22,7 +23,9 @@ function MostrarDatosProductos(props) {
 	const [ nuevoCarrito, setNuevoCarrito ] = useState([]);
 	const [ total, setTotal ] = useState(0);
 	const { activador, setActivador, validacion } = useContext(CarritoContext);
+	const { datosContx } = useContext(MenuContext);
 	const [ visible, setVisible ] = useState(false);
+	const [ laboral, setLaboral ] = useState(false);
 
 	//toma del token para el usuario
 	const token = localStorage.getItem('token');
@@ -53,6 +56,11 @@ function MostrarDatosProductos(props) {
 				setLoading(false);
 			});
 	}
+
+	useEffect(() => {
+		/* verificar dia No laboral */
+		setLaboral(verificarDiasLaborales(datosContx));
+	}, [datosContx])
 
 	useEffect(
 		() => {
@@ -126,8 +134,8 @@ function MostrarDatosProductos(props) {
 
 	return (
 		<Spin spinning={loading}>
-			<div className="mt-5">
-				<h1 className="principal navbar-menu-general font-carrito">Bievenido a tu pedido {cliente.nombre}</h1>
+			<div className="mt-5 rounded">
+				<h1 className="principal navbar-menu-general font-carrito">Bievenido a tu carrito {cliente.nombre}</h1>
 				<List
 					itemLayout="horizontal"
 					size="large"
@@ -154,32 +162,30 @@ function MostrarDatosProductos(props) {
 						</div>
 					</div>
 					<div className="col-lg-5 d-flex justify-content-center align-items-center mt-4">
-						<div className="row">
-							<div className="p-1">
-								<Button
-									size="large"
-									className="d-flex justify-content-center align-items-center color-boton color-font-boton font-des-car "
-									style={{ width: 250, textAlign: 'center' }}
-									onClick={() => crearPedido()}
-								>
-									<AlertOutlined style={styles} /> Ordenar ahora
-								</Button>
-							</div>
-							<div className="p-1">
-								<Button
-									size="large"
-									className="d-flex justify-content-center align-items-center color-boton color-font-boton font-des-car"
-									style={{ width: 250, textAlign: 'center' }}
-									onClick={() => apartarCarrito()}
-								>
-									<HomeOutlined style={styles} /> Recoger en restaurante
-								</Button>
-							</div>
-						</div>
+						<Space>
+						<Button
+							disabled={laboral}
+							size="large"
+							className="color-boton color-font-boton font-des-car"
+							style={{ width: 250, textAlign: 'center' }}
+							onClick={() => crearPedido()}
+						>
+							<ShoppingCartOutlined style={styles} /> Comprar ahora
+						</Button>
+						<Button
+							disabled={laboral}
+							size="large"
+							className="color-boton color-font-boton font-des-car"
+							style={{ width: 250, textAlign: 'center' }}
+							onClick={() => apartarCarrito()}
+						>
+							<ShoppingCartOutlined style={styles} /> Apartar carrito
+						</Button>
+						</Space>
 					</div>
 				</div>
 			</div>
-			<ApartadoCarrito cliente={cliente} token={token} modal={[ visible, setVisible ]} />
+			<ApartadoCarrito cliente={cliente._id} token={token} modal={[ visible, setVisible ]} />
 		</Spin>
 	);
 }

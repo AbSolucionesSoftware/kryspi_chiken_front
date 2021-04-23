@@ -11,11 +11,18 @@ export default function Perfiles(props) {
 	const [ datosUser, setDatosUser ] = useState(null);
 	const [ loading, setLoading ] = useState(false);
 	const [ accion, setAccion ] = useState(false);
-	const { colores } = useContext(MenuContext);
 
 	//Obtener token de localStorage
 	const token = localStorage.getItem('token');
 	var decoded = Jwt(token);
+
+	const { colores } = useContext(MenuContext);
+    const useStyles = makeStyles({
+		text: {
+			color: `${colores.bodyPage.text}!important`
+		},
+	});
+    const classes = useStyles();
 
 	//Decodificar el JWT
 	function Jwt(token) {
@@ -74,18 +81,11 @@ export default function Perfiles(props) {
 		[ accion ]
 	);
 
-	const useStyles = makeStyles({
-		text: {
-			color: colores.bodyPage.text
-		}
-	});
-	const classes = useStyles();
-
 	return (
 		<Spin spinning={loading}>
-			<div className="container col-lg-6">
-				<h1 className={"mt-5 text-center font-prin" + classes.text} >Bienvenido a tu perfil</h1>
-				<div className="mt-3 px-5 mx-auto" style={{ background: 'white', left: '50%' }}>
+			<div className="container col-lg-6 ">
+				<h1 className={"mt-5 text-center font-prin " + classes.text}>Bienvenido a tu perfil</h1>
+				<div className="mt-3 px-5 mx-auto rounded" style={{ background: 'white', left: '50%' }}>
 					<ActualizarUsuario
 						datosUser={datosUser}
 						decoded={decoded}

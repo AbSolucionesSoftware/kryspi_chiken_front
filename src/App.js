@@ -4,10 +4,12 @@ import 'antd/dist/antd.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import routes from './config/routes';
 import { Helmet } from 'react-helmet';
-import './scss/styleKryspi.scss';
+
 import { MenuContext } from './context/carritoContext';
 import clienteAxios from './config/axios';
 import jwt_decode from 'jwt-decode';
+
+import './scss/disenoDos.scss';
 
 export default function App() {
 

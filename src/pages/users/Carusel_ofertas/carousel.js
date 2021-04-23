@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import './ofertas.scss';
 import { withRouter } from 'react-router-dom';
 import aws from '../../../config/aws';
@@ -37,7 +37,7 @@ function CarouselOfertas(props) {
 						alt="img-oferta"
 						style={{
 							backgroundImage: `url(${aws + carousel.imagen})`,
-							cursor: 'pointer' 
+							cursor: carousel.producto ? `pointer` : 'default' 
 						}}
 					>
 					</BgElement>
