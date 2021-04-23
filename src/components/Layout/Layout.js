@@ -14,20 +14,20 @@ import { makeStyles } from '@material-ui/styles';
 export default function LayoutBasic(props) {
 	const { routes } = props;
 	const { Content, Footer } = Layout;
-	
-	// var decoded = { _id: '' };
-	const { colores } = useContext(MenuContext);
-	// const token = localStorage.getItem('token');
-	// if (token !== null) decoded = Jwt(token);
-	// function Jwt(token) {
-	// 	try {
-	// 		return jwt_decode(token);
-	// 	} catch (e) {
-	// 		return null;
-	// 	}
-	// }
+	const token = localStorage.getItem('token');
+	var decoded = { _id: '' };
+	const { setDatosContx, setLoading, active, setColores, colores } = useContext(MenuContext);
+	if (token !== null) decoded = Jwt(token);
 
-	/* const obtenerInformacionTienda = useCallback(
+	function Jwt(token) {
+		try {
+			return jwt_decode(token);
+		} catch (e) {
+			return null;
+		}
+	}
+
+	const obtenerInformacionTienda = useCallback(
 		async () => {
 			setLoading(true);
 			await clienteAxios
@@ -82,7 +82,7 @@ export default function LayoutBasic(props) {
 			obtenerInformacionTienda();
 		},
 		[ obtenerInformacionTienda, active ]
-	); */
+	);
 
 	const useStyles = makeStyles({
 		background: {
