@@ -99,9 +99,7 @@ const Categorias = (props) => {
 					className={'nav-font-color-categorias font-cates ' + classes.navbar}
 					key={index}
 					onClick={() => {
-						props.history.push(
-							`/filtros/${temporada._id}/${categoriaSeleccionada}/${subcategoriaSeleccionada}/${generoSeleccionado}`
-						);
+						props.history.push(`/filtros/${temporada._id}/${categoriaSeleccionada}/${subcategoriaSeleccionada}/${generoSeleccionado}`);
 						setTemporadaSeleccionada(temporada._id);
 					}}
 				>
