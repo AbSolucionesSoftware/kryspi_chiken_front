@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { InputNumber, Button, Form, Badge, Divider, notification, Modal, Select, Alert, List, Avatar } from 'antd';
-import { ShoppingCartOutlined, TagsOutlined, BellOutlined, WhatsAppOutlined } from '@ant-design/icons';
+import { ShoppingCartOutlined, TagsOutlined, BellOutlined, WhatsAppOutlined, CoffeeOutlined } from '@ant-design/icons';
 import jwt_decode from 'jwt-decode';
 import { AgregarCarrito, AgregarApartado, AgregarPedido } from './services';
 import { formatoMexico, verificarDiasLaborales } from '../../../../config/reuserFunction';

@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect,useCallback } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Layout } from 'antd';
 import Navegacion from '../../components/Navegacion/Navegacion';
-/* import Categorias from '../Categorias/Categorias'; */
+import Categorias from '../Categorias/Categorias';
 import FooterPage from '../../components/Footer/Footer';
 import './layout.scss';
 import { MenuContext } from '../../context/carritoContext';
-// import clienteAxios from '../../config/axios';
-// import jwt_decode from 'jwt-decode';
+import clienteAxios from '../../config/axios';
+import jwt_decode from 'jwt-decode';
 import ColorCustomizer from '../Colors/colores';
 import { makeStyles } from '@material-ui/styles';
 
