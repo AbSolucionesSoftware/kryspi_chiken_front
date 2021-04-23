@@ -199,9 +199,9 @@ function ListaCarrito(props) {
 									<Tag className="font-des-car detalles-carrito color-border-tags">
 										Categoria: {carrito.idarticulo.categoria}
 									</Tag>
-									<Tag className="font-des-car detalles-carrito color-border-tags">
+									{/* <Tag className="font-des-car detalles-carrito color-border-tags">
 										Género: {carrito.idarticulo.genero}
-									</Tag>
+									</Tag> */}
 									{carrito.idarticulo.color && carrito.idarticulo.color !== '' ? (
 										<Tag className="font-des-car detalles-carrito color-border-tags">
 											Color: {carrito.idarticulo.color}

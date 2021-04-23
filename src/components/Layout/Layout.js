@@ -1,8 +1,8 @@
-import React, { useContext, useEffect,useCallback } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Layout } from 'antd';
 import Navegacion from '../../components/Navegacion/Navegacion';
-import Categorias from '../Categorias/Categorias';
+/* import Categorias from '../Categorias/Categorias'; */
 import FooterPage from '../../components/Footer/Footer';
 import './layout.scss';
 import { MenuContext } from '../../context/carritoContext';
@@ -96,7 +96,7 @@ export default function LayoutBasic(props) {
 		<div className="body">
 			<ColorCustomizer />
 			<Layout>
-				<div className={"cuerpo bg-layout "+ classes.background}>
+				<div className="cuerpo bg-layout">
 					<Layout>
 						<Navegacion />
 						{/* <Categorias /> */}

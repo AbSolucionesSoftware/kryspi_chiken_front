@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import clienteAxios from '../../../../config/axios';
 import { notification } from 'antd';
 import queryString from 'query-string';
@@ -10,8 +10,6 @@ import { List } from 'antd';
 import { Link } from 'react-router-dom';
 import DOMPurify from 'dompurify';
 import './BlogList.scss';
-import { makeStyles } from '@material-ui/styles';
-import { MenuContext } from '../../../../context/carritoContext';
 
 export default function BlogList(props) {
 	const { location, history } = props;
@@ -19,13 +17,6 @@ export default function BlogList(props) {
 
 	const [ loading, setLoading ] = useState(false);
 	const [ blogs, setBlogs ] = useState([]);
-	const { colores } = useContext(MenuContext);
-	const useStyles = makeStyles({
-		text: {
-			color: `${colores.bodyPage.text}!important`
-		},
-	});
-	const classes = useStyles();
 
 	function getBlogsApi(limit, page) {
 		setLoading(true);
@@ -54,7 +45,7 @@ export default function BlogList(props) {
 	return (
 		<Spin size="large" spinning={loading}>
 			<div id="blog" className="container">
-				<p className={"font-prin text-center p-3 " + classes.text}>¡Nuestro Blog!</p>
+				<p className="font-prin text-center p-3">¡Nuestro Blog!</p>
 				<div className="container-fluid bg-white shadow-lg">
 					<div id="cards">
 						<BlogsList2 blogs={blogs} setLoading={setLoading} />

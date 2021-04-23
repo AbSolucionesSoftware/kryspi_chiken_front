@@ -134,8 +134,8 @@ function MostrarDatosProductos(props) {
 
 	return (
 		<Spin spinning={loading}>
-			<div className="mt-5 rounded">
-				<h1 className="principal navbar-menu-general font-carrito">Bievenido a tu carrito {cliente.nombre}</h1>
+			<div className="mt-5">
+				<h1 className="principal navbar-menu-general font-carrito">Bievenido a tu pedido {cliente.nombre}</h1>
 				<List
 					itemLayout="horizontal"
 					size="large"
@@ -189,7 +189,7 @@ function MostrarDatosProductos(props) {
 					</div>
 				</div>
 			</div>
-			<ApartadoCarrito cliente={cliente._id} token={token} modal={[ visible, setVisible ]} />
+			<ApartadoCarrito cliente={cliente} token={token} modal={[ visible, setVisible ]} />
 		</Spin>
 	);
 }

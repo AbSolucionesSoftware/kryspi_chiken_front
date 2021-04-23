@@ -7,8 +7,6 @@ import { Helmet } from 'react-helmet';
 import './scss/styleKryspi.scss';
 import { MenuProvider } from './context/carritoContext';
 
-// import './scss/disenoDos.scss';
-
 export default function App() {
 	return (
 		<div>

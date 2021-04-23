@@ -10,6 +10,7 @@ import { EditOutlined, DeleteOutlined, ExclamationCircleOutlined } from '@ant-de
 import aws from '../../../config/aws';
 import Spin from '../../../components/Spin';
 import ApartadoMultiple from './apartadoMultiple';
+import detalleApartado from './detalleApartado';
 import { makeStyles } from '@material-ui/styles';
 import { MenuContext } from '../../../context/carritoContext';
 
@@ -24,18 +25,11 @@ export default function PedidosUsuario(props) {
 	const [ loading, setLoading ] = useState(false);
 	const [ showInfo, setshowInfo ] = useState(false);
 	const [ estado, setEstado ] = useState(false);
+	const { colores } = useContext(MenuContext);
 
 	//modal del pedido
 	const [ detallePedido, setDetallePedido ] = useState({});
 	const [ detalleApartado, setDetalleApartado ] = useState({});
-
-	const { colores } = useContext(MenuContext);
-    const useStyles = makeStyles({
-		text: {
-			color: `${colores.bodyPage.text}!important`
-		},
-	});
-    const classes = useStyles();
 
 	const showModal = (e) => {
 		setVisible(e);
@@ -166,10 +160,17 @@ export default function PedidosUsuario(props) {
 		});
 	};
 
+	const useStyles = makeStyles({
+		text: {
+			color: colores.bodyPage.text
+		}
+	});
+	const classes = useStyles();
+
 	return (
 		<Spin spinning={loading}>
 			<div className="container">
-				<h4 className={"text-center m-3 " + classes.text}>Mis Compras</h4>
+				<h4 className={"text-center m-3 " + classes.text}>Mis Ordenes</h4>
 				<Tabs
 					centered
 					className="shadow bg-white rounded tabs-colors"
@@ -177,12 +178,12 @@ export default function PedidosUsuario(props) {
 					type="card"
 					size="large"
 				>
-					<TabPane tab="Mis compras" key="1">
+					<TabPane tab="Envios a domicilio" key="1">
 						<div>
 							{showInfo !== true ? (
 								<Result
 									status="404"
-									title="Parece que aun no tienes compras"
+									title="Parece que aun no tienes Ordenes"
 									subTitle="Ve y realiza tus compras. ¿Que esperas?"
 								/>
 							) : (
@@ -203,12 +204,12 @@ export default function PedidosUsuario(props) {
 							)}
 						</div>
 					</TabPane>
-					<TabPane tab="Mis apartados" key="2">
+					<TabPane tab="Recoger en restaurante" key="2">
 						<div>
 							{showInfo !== true ? (
 								<Result
 									status="404"
-									title="Parece que aun no tienes compras"
+									title="Parece que aun no tienes Ordenes"
 									subTitle="Ve y realiza tus compras para poder verlas"
 								/>
 							) : (
@@ -268,8 +269,7 @@ export default function PedidosUsuario(props) {
 }
 
 function Pedido(props) {
-	const { pedido, showModal, setDetallePedido, setElige } = props;
-
+	const { pedido, showModal, setDetallePedido, setElige, detallePedido } = props;
 	return (
 		<List.Item
 			key={pedido._id}
@@ -285,7 +285,7 @@ function Pedido(props) {
 					}}
 				>
 					<EditOutlined />
-					Ver mi pedido
+					Ver mi orden
 				</Button>
 			]}
 		>
@@ -295,9 +295,14 @@ function Pedido(props) {
 					<span className="text-primary"> x {pedido.pedido.length}</span>
 				</p>
 				<p className="h6">
+					<span className="font-weight-bold">Tipo de pago: </span>
+					<span className="text-primary"> {pedido.tipo_pago}</span>
+				</p>
+				<p className="h6">
 					<span className="font-weight-bold">Total:</span>{' '}
 					<span className="text-success"> $ {formatoMexico(pedido.total)}</span>{' '}
 				</p>
+				
 				{/* <p className="h6"><span className="font-weight-bold">Pedido el:</span> {formatoFecha(pedido.createdAt)}</p> */}
 				<p className="m-0" style={{ fontSize: '15px' }}>
 					<span className="font-weight-bold">Pedido:</span>
@@ -364,6 +369,10 @@ function Pedido(props) {
 							<p className="m-0" style={{ fontSize: '15px' }}>
 								<span className="font-weight-bold">Total de la compra:</span>
 								<span className="text-success"> $ {formatoMexico(pedido.total)}</span>{' '}
+							</p>
+							<p className="h6">
+								<span className="font-weight-bold">Tipo de pago: </span> <br/>
+								<span > {pedido.tipo_pago}</span>
 							</p>
 							<p className="m-0" style={{ fontSize: '15px' }}>
 								<span className="font-weight-bold">Fecha de pedido:</span>{' '}
@@ -444,7 +453,7 @@ function Apartado({ apartado, showModal, setDetalleApartado, setElige, deleteApa
 						}}
 					>
 						<EditOutlined />
-						Ver mi apartado
+						Ver mi pedido
 					</Button>
 					<Button
 						className={
@@ -464,7 +473,7 @@ function Apartado({ apartado, showModal, setDetalleApartado, setElige, deleteApa
 						}}
 					>
 						<DeleteOutlined />
-						Eliminar apartado
+						Eliminar pedido
 					</Button>
 				</div>
 			]}
