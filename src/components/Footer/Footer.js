@@ -161,7 +161,7 @@ const FooterPage = (props) => {
 										if(horario.close){
 											return (
 												<div>
-													<p className="h6">
+													<p className="h6 text-color">
 														<b>{horario.dia}: </b> {horario.horarioInicial} -{' '}
 														{horario.horarioFinal}
 													</p>
@@ -170,7 +170,7 @@ const FooterPage = (props) => {
 										}else{
 											return (
 												<div>
-													<p className="h6">
+													<p className="h6 text-color">
 														<b>{horario.dia}: NO HAY SERVICIO </b>
 													</p>
 												</div>

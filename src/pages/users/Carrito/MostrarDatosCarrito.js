@@ -4,7 +4,7 @@ import jwt_decode from 'jwt-decode';
 import { Link, withRouter } from 'react-router-dom';
 import './carrito.scss';
 import { List, Button, message, Result, Space } from 'antd';
-import { ShoppingCartOutlined } from '@ant-design/icons';
+import {  AlertOutlined,HomeOutlined } from '@ant-design/icons';
 import { formatoMexico, verificarDiasLaborales } from '../../../config/reuserFunction';
 import { CarritoContext } from './context_carrito/context-carrito';
 import { MenuContext } from '../../../context/carritoContext.js';
@@ -162,26 +162,30 @@ function MostrarDatosProductos(props) {
 						</div>
 					</div>
 					<div className="col-lg-5 d-flex justify-content-center align-items-center mt-4">
-						<Space>
-						<Button
-							disabled={laboral}
-							size="large"
-							className="color-boton color-font-boton font-des-car"
-							style={{ width: 250, textAlign: 'center' }}
-							onClick={() => crearPedido()}
-						>
-							<ShoppingCartOutlined style={styles} /> Comprar ahora
-						</Button>
-						<Button
-							disabled={laboral}
-							size="large"
-							className="color-boton color-font-boton font-des-car"
-							style={{ width: 250, textAlign: 'center' }}
-							onClick={() => apartarCarrito()}
-						>
-							<ShoppingCartOutlined style={styles} /> Apartar carrito
-						</Button>
-						</Space>
+						<div className="row">
+							<div className="p-1">
+								<Button
+									size="large"
+									className="d-flex justify-content-center align-items-center color-boton color-font-boton font-des-car "
+									style={{ width: 250, textAlign: 'center' }}
+									onClick={() => crearPedido()}
+									disabled={laboral}
+								>
+									<AlertOutlined style={styles} /> Ordenar ahora
+								</Button>
+							</div>
+							<div className="p-1">
+								<Button
+									size="large"
+									className="d-flex justify-content-center align-items-center color-boton color-font-boton font-des-car"
+									style={{ width: 250, textAlign: 'center' }}
+									onClick={() => apartarCarrito()}
+									disabled={laboral}
+								>
+									<HomeOutlined style={styles} /> Recoger en restaurante
+								</Button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

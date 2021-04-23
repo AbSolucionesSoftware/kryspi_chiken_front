@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './carrito.scss';
 import { List, InputNumber, Button, Select, Form, Tag, Modal } from 'antd';
-import { ShoppingCartOutlined, ExportOutlined, DeleteOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import { ShoppingCartOutlined, HomeOutlined,AlertOutlined, ExportOutlined, DeleteOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 import { formatoMexico, agregarPorcentaje, verificarDiasLaborales } from '../../../config/reuserFunction';
 import { CarritoContext } from './context_carrito/context-carrito';
 import { MenuContext } from '../../../context/carritoContext';
@@ -347,26 +347,36 @@ function ListaCarrito(props) {
 						</Button>
 					</div>
 				) : (
-					<div className="d-flex justify-content-center">
-						<Button
-							type="link"
-							className="color-fonts font-des-car"
-							onClick={() => comprar()}
-							disabled={medidaDisponible !== '' || laboral ? true : false}
-						>
-							<ShoppingCartOutlined style={styles} />Comprar
-						</Button>
-						<Button type="link" className="color-fonts font-des-car" onClick={() => eliminar()}>
-							<DeleteOutlined style={styles} />Eliminar
-						</Button>
-						<Button
-							type="link"
-							className="color-fonts font-des-car"
-							onClick={() => apartado()}
-							disabled={medidaDisponible !== '' || laboral ? true : false}
-						>
-							<ExportOutlined style={styles} />Apartar
-						</Button>
+					<div className="row d-flex justify-content-center">
+						<div>
+							<Button
+								type="link"
+								className="d-flex justify-content-center align-items-center color-fonts font-des-car "
+								onClick={() => comprar()}
+								disabled={medidaDisponible !== '' || laboral ? true : false}
+							>
+								<AlertOutlined style={styles} />Ordenar individual
+							</Button>
+						</div>
+						<div>
+							<Button 
+								type="link" 
+								className="d-flex justify-content-center align-items-center color-fonts font-des-car" 
+								onClick={() => eliminar()}
+							>
+								<DeleteOutlined style={styles} />Eliminar producto
+							</Button>
+						</div>
+						<div>
+							<Button
+								type="link"
+								className="d-flex justify-content-center align-items-center color-fonts font-des-car"
+								onClick={() => apartado()}
+								disabled={medidaDisponible !== '' || laboral ? true : false}
+							>
+								<HomeOutlined style={styles} />Recoger individual
+							</Button>
+						</div>
 					</div>
 				)}
 			</div>

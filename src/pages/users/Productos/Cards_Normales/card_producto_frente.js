@@ -45,9 +45,10 @@ export default function Card_Producto_Frente(props) {
 								</div>
 							}
 						>
-							<div className="contenedor-titulos-productos titulo-elipsis ">
-								<h1 className="titulo-producto">{productos.productoPromocion.nombre}</h1>
+							<div className="contenedor-titulos-productos titulo-elipsis">
+								<h1 className="titulo-producto text-color">{productos.productoPromocion.nombre}</h1>
 								<div
+								className="text-color"
 									dangerouslySetInnerHTML={{
 										__html: DOMPurify.sanitize(productos.productoPromocion.descripcion)
 									}}
@@ -105,9 +106,9 @@ export default function Card_Producto_Frente(props) {
 							}
 						>
 							<div className="frente contenedor-titulos-productos titulo-elipsis">
-								<p className="font-secun titulo-producto">{productos.nombre}</p>
+								<p className="font-secun titulo-producto text-color">{productos.nombre}</p>
 								<div
-									className="font-peque description "
+									className="font-peque description text-color"
 									dangerouslySetInnerHTML={{
 										__html: DOMPurify.sanitize(productos.descripcion)
 									}}

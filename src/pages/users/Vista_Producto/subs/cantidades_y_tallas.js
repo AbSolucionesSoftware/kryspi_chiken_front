@@ -503,6 +503,18 @@ function TallasCantidades(props) {
 				) : (
 					<div className="contenedor-button-vista">
 						<div>
+								<Button
+									className="d-flex justify-content-center align-items-center size-button-vista color-boton font-boton-vista"
+									//type="primary"
+									size="large"
+									onClick={() => Pedido()}
+									disabled={disabled || laboral}
+								>
+									<CoffeeOutlined  style={{ fontSize: 20 }} />
+									Ordenar ahora
+								</Button>
+							</div>
+							<div>
 							<Button
 								className="d-block size-button-vista color-boton font-vista-prod"
 								//type="primary"

@@ -50,6 +50,7 @@ const Categorias = (props) => {
 		return null;
 	}
 
+
 	const categorias_nav = datosContx.navbar.filtroNav.map((categoria, index) => {
 		return (
 			<SubMenu

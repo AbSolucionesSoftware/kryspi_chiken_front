@@ -46,8 +46,8 @@ export default function Card_Producto(props) {
 							}
 						>
 							<div className="contenedor-titulos-productos titulo-elipsis">
-								<p className="font-secun titulo-producto">{productos.productoPromocion.nombre}</p>
-								<div
+								<p className=" titulo-producto text-color">{productos.productoPromocion.nombre}</p>
+								 <div
 									className="font-peque description"
 									dangerouslySetInnerHTML={{
 										__html: DOMPurify.sanitize(productos.productoPromocion.descripcion)
@@ -105,9 +105,9 @@ export default function Card_Producto(props) {
 								</div>
 							}
 						>
-							<div className=" contenedor-titulos-productos titulo-elipsis">
-								<p className="font-secun titulo-producto">{productos.nombre}</p>
-								<div
+							<div className="contenedor-titulos-productos titulo-elipsis">
+								<p className="titulo-producto text-color">{productos.nombre}</p>
+								 <div
 									className="font-peque description "
 									dangerouslySetInnerHTML={{
 										__html: DOMPurify.sanitize(productos.descripcion)
