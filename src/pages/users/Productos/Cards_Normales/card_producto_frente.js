@@ -47,7 +47,7 @@ export default function Card_Producto_Frente(props) {
 								</div>
 							}
 						>
-							<div className="contenedor-titulos-productos ">
+							<div className="contenedor-titulos-productos">
 								<h1 className="titulo-producto text-color">{productos.productoPromocion.nombre}</h1>
 								{/* <div
 								className="text-color"

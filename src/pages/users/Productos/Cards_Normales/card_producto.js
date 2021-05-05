@@ -107,7 +107,7 @@ export default function Card_Producto(props) {
 								</div>
 							}
 						>
-							<div className="contenedor-titulos-productos ">
+							<div className="contenedor-titulos-productos">
 								<p className="titulo-producto text-color">{productos.nombre}</p>
 								{/* <div
 									className="font-peque description "
