@@ -98,6 +98,15 @@
 }
 
 @media(max-width: 992px){
+  .contenedor-logo{
+    margin-left: 0%;
+    height: 85px;
+    width: 155px;
+    padding: 0% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .barsMenu{
     display: inline-block;
   }
@@ -119,7 +128,7 @@
 
   } */
   .search-nav-responsive{
-    width: 89%;
+    width: 100%;
   }
 }
 .contenedor-logo-draw{
