@@ -313,6 +313,8 @@ function Pedido(props) {
 								'#5cb85c'
 							) : pedido.estado_pedido === 'Enviado' ? (
 								'#0088ff'
+							) : pedido.estado_pedido === 'Tomado' ? (
+								'#F26F48'
 							) : (
 								'#ffc401'
 							)
@@ -356,6 +358,8 @@ function Pedido(props) {
 												'#5cb85c'
 											) : pedido.estado_pedido === 'Enviado' ? (
 												'#0088ff'
+											) : pedido.estado_pedido === 'Tomado' ? (
+												'#F26F48'
 											) : (
 												'#ffc401'
 											)
