@@ -33,39 +33,45 @@ const BgElement = Element.BgElement;
     const render = banner.banners.map((banner, index) => {
 
         return (
-            <div key={index} className="mt-4 cont-principal">
-                {banner.mostrarTitulo !== false ? (
+            <div key={index} className="cont-principal">
+                {/* {banner.mostrarTitulo !== false ? (
                     <TweenOne key="demo" animation={{ y: 30, opacity: 0, type: 'from', delay: 800 }}>
                         <h1 className={"tit-banner font-prin " + classes.text}>{banner.tipo.categoria || banner.tipo.temporada }</h1>
                     </TweenOne>
-                 ) : ""}
+                 ) : ""} */}
 
                 {banner.imagenBanner || banner.imagenBanner !== '' ? (
-                    <div className="banner-prin"> 
-                      <BannerAnim autoPlay /* activeIndex={index} onSelect={handleSelect} */ prefixCls="banner-prin mx-auto" >
-                      <Element prefixCls="banner-user-elem" animation={{ y: 30, opacity: 0, type: 'from', delay: 800 }}>
-                          <BgElement
-                              onClick={() =>
-                                  {if (banner.vincular !== false) {
-                                      props.history.push(`/searching/${ banner.tipo.categoria || banner.tipo.temporada || banner.tipo.genero }`);
-                                  }
-                              }}
-  
-                              key="bg"
-                              className="bg banner-prom mx-auto"
-                              alt="img-oferta"
-                              style={{
-                                  backgroundImage: imagenLocal ? `url(${banner.imagenBanner})` : `url(${aws + banner.imagenBanner})`,
-                                  cursor: 'pointer'
-                              }}
-                          >
-                          </BgElement>
-                      </Element>
-                      </BannerAnim>
-                    </div>
+                    <>
+                    {/* <div className="banner-prin mx-auto mt-2" >  */}
+                      {/* <BannerAnim autoPlay  activeIndex={index} onSelect={handleSelect}  prefixCls="banner-prin mx-auto" > */}
+                        {/* <Element prefixCls="banner-user-elem" animation={{ opacity: 0, type: 'from', delay: 800 }}> */}
+                            <div
+                                onClick={() =>
+                                    {if (banner.vincular !== false) {
+                                        props.history.push(`/searching/${ banner.tipo.categoria || banner.tipo.temporada || banner.tipo.genero }`);
+                                    }
+                                }}
+                                // key="bg"
+                                className="banner-prom mx-auto mt-2"
+                                // style={{
+                                //     backgroundImage: imagenLocal ? `url(${banner.imagenBanner})` : `url(${aws + banner.imagenBanner})`,
+                                //     cursor: 'pointer',
+                                // }}
+                            >
+                                <img 
+                                    className="banner-img mx-auto"
+                                    alt=""
+                                    src={imagenLocal ? (banner.imagenBanner ): (aws + banner.imagenBanner)}
+                                />
+                            </div>  
+                            {/* </BgElement> */}
+                        {/* </Element> */}
+                      {/* </BannerAnim> */}
+                    {/* </div> */}
+                    </>
                     ) : 
                     null
-                    }
+                }
 
                 <div>
                     {banner.mostrarProductos !== false ? (

@@ -77,13 +77,13 @@ export default function Card_Producto_Frente(props) {
 		);
 	} else {
 		return (
-			<div key={productos._id} className="size-col col-lg-2 col-6">
+			<div key={productos._id} className="size-col col-lg-2 col-6" >
 				<Link to={`/vista_producto/${productos._id}`}>
 					<Card.Grid hoverable style={gridStyle} className={"frente contenedor-card-producto-principal " + classes.background}>
 						<Card
 							className={"frente-bajo frente contenedor-card-body " + classes.background}
 							cover={
-								<div className="contenedor-imagen-oferta ">
+								<div className="contenedor-imagen-oferta">
 									{productos.promocion.length !== 0 ? (
 										productos.promocion.map((promo) => {
 											return (
@@ -97,7 +97,7 @@ export default function Card_Producto_Frente(props) {
 										<div className="d-none" />
 									)}
 
-									<div className="contenedor-imagen-producto-principal ">
+									<div className="contenedor-imagen-producto-principal">
 										<img
 											className="imagen-producto-principal"
 											alt="producto"
@@ -107,36 +107,50 @@ export default function Card_Producto_Frente(props) {
 								</div>
 							}
 						>
-							<div className="frente contenedor-titulos-productos">
-								<p className="font-secun titulo-producto text-color">{productos.nombre}</p>
-								{/* <div
-									className="font-peque description text-color"
-									dangerouslySetInnerHTML={{
-										__html: DOMPurify.sanitize(productos.descripcion)
-									}}
-								/> */}
-							</div>
-							{/* {!productos.promocion.length ? (
-								<div className="frente contenedor-precios-productos">
-									<h3 className="font-prin precio-rebaja text-color">${formatoMexico(productos.precio)}</h3>
-								</div>
-							) : (
-								productos.promocion.map((promo) => {
-									return (
-										<div className="frente contenedor-precios-productos text-color" key={promo._id}>
-											<h2 className="font-peque precio-producto  mr-2">
-												${formatoMexico(productos.precio)}
-											</h2>
-											<h3 className="font-prin precio-rebaja d-inline mr-1 text-color">
-												${formatoMexico(promo.precioPromocion)}
-											</h3>
-											<p className="font-peque porcentaje-descuento d-inline">
-												{agregarPorcentaje(promo.precioPromocion, productos.precio)}%OFF
-											</p>
+							<div className="container">
+								<div className="row">
+									<div className="col-8 col-lg-8" style={{padding: '3%', margin: '0%'}}>
+										<div className="frente contenedor-titulos-productos">
+											<p className="titulo-producto-frente text-color">{productos.nombre}</p>
 										</div>
-									);
-								})
-							)} */}
+									</div>
+									<div className="col-4 col-lg-4 cont-precios-frente" style={{padding: '3%', margin: '0%'}}>
+										{!productos.promocion.length ? (
+												<div className="frente contenedor-precios-productos">
+													<h3 className="titulo-producto-frente precio-rebaja text-color">${formatoMexico(productos.precio)}</h3>
+												</div>
+										) : (
+											productos.promocion.map((promo) => {
+												return (
+													<div className="frente contenedor-precios-productos text-color" key={promo._id}>
+														<h2 className="titulo-producto-frente precio-producto  mr-2">
+															${formatoMexico(productos.precio)}
+														</h2>
+														<h3 className="titulo-producto-frente precio-rebaja d-inline mr-1 text-color">
+															${formatoMexico(promo.precioPromocion)}
+														</h3>
+														<p className="titulo-producto-frente porcentaje-descuento d-inline">
+															{agregarPorcentaje(promo.precioPromocion, productos.precio)}%OFF
+														</p>
+													</div>
+												);
+											})
+										)}
+									</div>
+									<div
+										style={{padding: '0%', margin: '0%'}}
+										className="col-12 col-lg-12 font-descrip-card-frente text-color "
+									>
+										<p 
+											class="overflow-ellipsis description text-justify"
+											dangerouslySetInnerHTML={{
+												__html: DOMPurify.sanitize(productos.descripcion)
+											}}
+										/>
+									</div>
+								</div>
+							</div>
+							
 						</Card>
 					</Card.Grid>
 				</Link>

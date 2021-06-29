@@ -8,7 +8,7 @@ function Consulta_Banners(props) {
 	const { datosContx } = useContext(MenuContext);
 
     return (
-        <div className="container-fluid">
+        <div className="container-fluid" style={{padding: '1%'}}>
 			 <Banner_Promocionales banner={datosContx.banners}/>
         </div>
     )
