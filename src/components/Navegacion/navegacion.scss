@@ -100,8 +100,9 @@
 @media(max-width: 992px){
   .contenedor-logo{
     margin-left: 0%;
-    height: 85px;
-    width: 155px;
+    margin: 0%!important;
+    height: 65px;
+    width: 65px;
     padding: 0% !important;
     display: flex;
     justify-content: center;
@@ -115,6 +116,7 @@
   }
   .top-menu-responsive{
     width: 100%;
+    padding: 0%!important;
     display: flex;
     justify-content: space-between;
   }
@@ -122,6 +124,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .a0{
+    height: auto;
+    font-weight: bold;
   }
 /*   .ant-layout-header{
     padding: 0;

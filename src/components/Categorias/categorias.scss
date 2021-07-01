@@ -35,4 +35,15 @@
     font-weight: 300;
 }
 
+@media(max-width: 992px){
+    .categorias-navbar{
+        /* height: 40px; */
+        display: flex; 
+        border: none;
+        align-items: flex-end;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
 

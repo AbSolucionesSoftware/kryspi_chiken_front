@@ -457,6 +457,19 @@ p, a, li{
         font-size: 14px;
         letter-spacing: .1px;
     }
+    
+    .font-cates{
+        font-size: 14px;
+        text-transform: uppercase;
+        // font-weight: bold;
+        -webkit-font-smoothing: antialiased;
+    }
+    .font-subcates{
+        font-size: 13px;
+        text-transform: uppercase;
+        // font-weight: bold;
+        -webkit-font-smoothing: antialiased;
+    }
 }
 
 
