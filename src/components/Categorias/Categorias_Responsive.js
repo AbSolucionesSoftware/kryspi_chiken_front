@@ -15,6 +15,8 @@ const CategoriasResponsive = (props) => {
 	const [ subcategoriaSeleccionada, setSubcategoriaSeleccionada, ] = useState(null);
 	const [ temporadaSeleccionada, setTemporadaSeleccionada, ] = useState(null);
 	const [ generoSeleccionado, setGeneroSeleccionado ] = useState(null);
+	const [openKeys, setOpenKeys] = useState(['sub1']);
+
 
 	useEffect(() => {
 		limpiarFiltros();
@@ -57,7 +59,7 @@ const CategoriasResponsive = (props) => {
 			<SubMenu
 				key={categoria.categoria}
 				title={categoria.categoria}
-				className={"submenu-categoria nav-font-color-categorias container-subcategorias-nav size-submenu-cat font-cates " + classes.background + ' ' + classes.hover}
+				className={"submenu-categoria nav-font-color-categorias container-subcategorias-nav size-submenu-cat font-cates d-flex flex-wrap" + classes.background + ' ' + classes.hover}
 				onTitleClick={(e) => {
 					if(e.key === categoria.categoria){
 						props.history.push(`/filtros/${temporadaSeleccionada}/${categoria.categoria}/${subcategoriaSeleccionada}/${generoSeleccionado}`);
@@ -71,7 +73,7 @@ const CategoriasResponsive = (props) => {
 				{categoria.subcCategoria.map((sub) => {
 					return (
 						<Menu.Item
-							className="font-subcates "
+							className="font-subcates d-flex flex-wrap"
 							key={sub._id}
 							onClick={() => {
 								props.history.push(`/filtros/${temporadaSeleccionada}/${categoriaSeleccionada}/${sub._id}/${generoSeleccionado}`);
@@ -127,19 +129,32 @@ const CategoriasResponsive = (props) => {
 			</Menu.Item>
 		);
 	}); */
+	const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
+	const onOpenChange = keys => {
+		const latestOpenKey = keys.find(key => openKeys.indexOf(key) === -1);
+		if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+		  setOpenKeys(keys);
+		} else {
+		  setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+		}
+	  };
 
 	return (
-		<Layout className={"container-subcategorias-nav d-lg-inline size-layout-cat " + classes.background} style={{padding: '0%'}}>
+		<Layout className={"container-subcategorias-nav size-layout-cat d-flex flex-wrap" + classes.background} style={{padding: '0%', margin: '0%'}}>
 			{/* <Spin className="ml-5 d-inline spin-nav-categorias" spinning={loading} />  */}
 			<Menu
-				className={"categorias-navbar size-menu-cat font-cates " + classes.background }
+				className={"d-flex flex-wrap categorias-navbar size-menu-cat font-cates " + classes.background }
 				theme="light"
 				mode="horizontal"
 				defaultSelectedKeys={[ window.location.pathname ]}
 				triggerSubMenuAction="click"
 			>
+			{/* <Menu mode="inline" openKeys={openKeys} onOpenChange={onOpenChange} style={{ width: 256 }}>
+      			<SubMenu key="sub1"  title="Navigation One"> */}
 				{categorias_nav}
-			</Menu>
+				{/* </SubMenu>
+			</Menu> */}
+		 	</Menu>
 		</Layout>
 	);
 };

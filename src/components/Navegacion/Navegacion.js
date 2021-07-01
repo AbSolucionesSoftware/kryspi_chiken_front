@@ -168,10 +168,10 @@ const Navegacion = (props) => {
 									</div>
 								</div>
 								{/* INICIO DE AVATAR, TU CARRITO Y ENTRAR  */}
-								<div className="col-lg-7 containe-categorias  mt-2">
+								<div className="col-lg-8 containe-categorias  mt-2">
 									<Categorias />
 								</div>
-								<div className="col-lg-3 row a4 mt-2 justify-content-end">
+								<div className="col-lg-2 row a4 mt-2 justify-content-end">
 									<div>
 										<Menu
 											className={"float-right navbar-menu-sesion a50 "  + classes.background}
