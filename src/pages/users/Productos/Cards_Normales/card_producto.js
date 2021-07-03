@@ -7,6 +7,8 @@ import './card_producto.scss';
 /* import { formatoMexico, agregarPorcentaje } from '../../../../config/reuserFunction'; */
 import { MenuContext } from '../../../../context/carritoContext';
 import { makeStyles } from '@material-ui/styles';
+import DOMPurify from 'dompurify';
+import { agregarPorcentaje, formatoMexico } from '../../../../config/reuserFunction';
 
 const gridStyle = { width: '100%', padding: 0, marginBottom: '1.5rem' };
 
@@ -77,7 +79,7 @@ export default function Card_Producto(props) {
 		);
 	} else {
 		return (
-			<div key={productos._id} className="size-col-prin col-lg-2 col-6 centrar">
+			<div key={productos._id} className="size-col-prin col-lg-2 col-6 centrar" style={{padding: '1%', margin: '0%'}}>
 				<Link to={`/vista_producto/${productos._id}`}>
 					<Card.Grid hoverable style={gridStyle} className={"contenedor-card-producto-principal " + classes.background}>
 						<Card
@@ -107,36 +109,50 @@ export default function Card_Producto(props) {
 								</div>
 							}
 						>
-							<div className="contenedor-titulos-productos">
-								<p className="titulo-producto text-color">{productos.nombre}</p>
-								{/* <div
-									className="font-peque description "
-									dangerouslySetInnerHTML={{
-										__html: DOMPurify.sanitize(productos.descripcion)
-									}}
-								/> */}
-							</div>
-							{/* {!productos.promocion.length ? (
-								<div className="contenedor-precios-productos">
-									<h3 className="precio-prin precio-rebaja ">${formatoMexico(productos.precio)}</h3>
+							<div className="container">
+								<div className="row">
+									<div className="col-8 col-lg-8 contenedor-titulos-productos" style={{padding: '1%', margin: '0%'}}>
+										<p className="titulo-producto-menu text-color">{productos.nombre}</p>
+									</div>
+									<div className="col-4 col-lg-4 cont-precios-frente" style={{padding: '0%', margin: '0%'}}>
+										{!productos.promocion.length ? (
+											<div className="contenedor-precios-productos">
+												<h3 className="precio-prin precio-rebaja ">${formatoMexico(productos.precio)}</h3>
+											</div>
+										) : (
+											productos.promocion.map((promo) => {
+												return (
+													<div className="contenedor-precios-productos" key={promo._id}>
+														<h2 className="font-peque precio-producto mr-2">
+															${formatoMexico(productos.precio)}
+														</h2>
+														<h3 className="font-prin precio-rebaja d-inline mr-1">
+															${formatoMexico(promo.precioPromocion)}
+														</h3>
+														<p className="font-peque porcentaje-descuento d-inline">
+															{agregarPorcentaje(promo.precioPromocion, productos.precio)}%OFF
+														</p>
+													</div>
+												);
+											})
+										)}
+									</div>
+									<div
+										style={{padding: '0%', margin: '0%'}}
+										className="col-12 col-lg-12 font-descrip-card-frente text-color mt-1"
+									>
+										<p 
+											style={{padding: '4%', margin: '0%'}}
+											class="description-menu text-justify"
+											dangerouslySetInnerHTML={{
+												__html: DOMPurify.sanitize(productos.descripcion)
+											}}
+										/>
+									</div>
 								</div>
-							) : (
-								productos.promocion.map((promo) => {
-									return (
-										<div className="contenedor-precios-productos" key={promo._id}>
-											<h2 className="font-peque precio-producto mr-2">
-												${formatoMexico(productos.precio)}
-											</h2>
-											<h3 className="font-prin precio-rebaja d-inline mr-1">
-												${formatoMexico(promo.precioPromocion)}
-											</h3>
-											<p className="font-peque porcentaje-descuento d-inline">
-												{agregarPorcentaje(promo.precioPromocion, productos.precio)}%OFF
-											</p>
-										</div>
-									);
-								})
-							)} */}
+							</div>
+							
+							
 						</Card>
 					</Card.Grid>
 				</Link>

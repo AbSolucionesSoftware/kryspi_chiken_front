@@ -346,7 +346,7 @@ p, a, li{
 }
 .font-descrip{
     font-size: 16px;
-    letter-spacing: .9px;
+    // letter-spacing: .9px;
 
 }
 .font-peque{
@@ -361,6 +361,18 @@ p, a, li{
     padding-top: 3%;
     padding-bottom: 5%;
     padding-right: 2%;
+}
+.titulo-producto-menu{
+    padding: 3%;
+    padding-left: 5%;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: .5px;
+}
+.titulo-producto-frente{
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 5%;
 }
 
 .font-cates{
@@ -407,7 +419,6 @@ p, a, li{
     letter-spacing: .9px;
 }
 
-
 .font-carrito{
     font-size: 24px;
     letter-spacing: .9px;
@@ -419,6 +430,46 @@ p, a, li{
 .font-des-car{
     font-size: 15px;
     letter-spacing: .9px;
+}
+.font-descrip-card-frente{
+    font-size: 14px;
+}
+
+@media(max-width: 768px){
+    .titulo-producto{
+        font-size: 13px;
+        // font-weight: bold;
+        // padding-left: 2%;
+        // padding-top: 3%;
+    }
+    .titulo-producto-frente{
+        font-size: 13px;
+    }
+    .font-descrip-card-frente{
+        font-size: 11px;
+    }
+    .titulo-producto-menu{
+        padding-left: 5%;
+        padding: 0%!important;
+        font-size: 13px;
+    }
+    .precio-prin{
+        font-size: 14px;
+        letter-spacing: .1px;
+    }
+    
+    .font-cates{
+        font-size: 14px;
+        text-transform: uppercase;
+        // font-weight: bold;
+        -webkit-font-smoothing: antialiased;
+    }
+    .font-subcates{
+        font-size: 13px;
+        text-transform: uppercase;
+        // font-weight: bold;
+        -webkit-font-smoothing: antialiased;
+    }
 }
 
 

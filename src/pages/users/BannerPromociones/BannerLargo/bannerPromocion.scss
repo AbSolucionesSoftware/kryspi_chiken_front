@@ -3,29 +3,42 @@
   margin-left: 5%;
   font-family: 'Courgette', cursive;
 }
-.banner-prin{
-  height: 330px;
-  width: 100%!important;
+.banner-prom{
+  height: 420px;
+  width: 75%!important;
   //transition: .2s;
 }
-.banner-prom{
-  width: 90%!important;
+.banner-img{
+  width: 100%!important;
   height: 100%!important;
   background-repeat: no-repeat;
   background-attachment: center;
   background-position: center center;
   background-size: contain;
-
 }
+
   @media(max-width: 768px){
-    .banner-prin{
-      height: 100px!important;
+    .banner-prom{
+      height: 165px;
+      width: 100%!important;
+      //transition: .2s;
+    }
+    .banner-img{
+      width: 100%!important;
+      height: 100%!important;
+      background-repeat: no-repeat;
+      background-attachment: center;
+      background-position: center center;
+      background-size: contain;
     }
   }
 
 .div-cards{
   margin-top: 30px;
 } 
+
+
+
  
   
 

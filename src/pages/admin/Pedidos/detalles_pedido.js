@@ -44,7 +44,7 @@ const DetallesPedido = (props) => {
 			</div>
 			<div className="my-2">
 				<h6 className="titulos-info-pedidos">Estado:</h6>
-				<Tag className="data-info-pedidos" color={pedido.estado_pedido === 'Entregado' ? '#5cb85c' : pedido.estado_pedido === 'Enviado' ? '#0088ff' : '#ffc401'}>
+				<Tag className="data-info-pedidos" color={pedido.estado_pedido === 'Entregado' ? '#5cb85c' : pedido.estado_pedido === 'Enviado' ? '#0088ff' : pedido.estado_pedido === 'Tomado' ? '#F26F48' : '#ffc401'}>
 					{pedido.estado_pedido}
 				</Tag>
 			</div>
@@ -71,17 +71,44 @@ const DetallesPedido = (props) => {
 				<h6 className="titulos-info-pedidos">Telefono:</h6>
 				<p className="data-info-pedidos">{pedido.cliente.telefono}</p>
 			</div>
-			{pedido.cliente.direccion.map((direccion) => {
-				return (
-					<div className="my-2" key={direccion._id}>
-						<h6 className="titulos-info-pedidos">Dirección:</h6>
-						<p className="data-info-pedidos">
-							{direccion.calle_numero}, {direccion.ciudad}, {direccion.estado},{' CP '}
-							{direccion.cp}
-						</p>
+			{pedido.direccion ? (
+					<div>
+						<div className="my-2">
+							<h6 className="titulos-info-pedidos">Dirección:</h6>
+							<p className="data-info-pedidos">
+								{pedido.direccion.calle_numero}, {pedido.direccion.ciudad}, {pedido.direccion.estado},{' CP '}
+								{pedido.direccion.cp}
+							</p>
+						</div>
+						<div className="my-2">
+							<h6 className="titulos-info-pedidos">Entre Calles:</h6>
+							<p className="data-info-pedidos">
+								{pedido.direccion.entre_calles}
+							</p>
+						</div>
 					</div>
-				);
-			})}
+				):(
+					pedido.cliente.direccion.map((direccion) => {
+						return (
+							<div key={direccion._id}>
+								<div className="my-2">
+									<h6 className="titulos-info-pedidos">Dirección:</h6>
+									<p className="data-info-pedidos">
+										{direccion.calle_numero}, {direccion.ciudad}, {direccion.estado},{' CP '}
+										{direccion.cp}
+									</p>
+								</div>
+								<div className="my-2">
+									<h6 className="titulos-info-pedidos">Entre Calles:</h6>
+									<p className="data-info-pedidos">
+										{direccion.entre_calles}
+									</p>
+								</div>
+							</div>
+						);
+					})
+				)
+			}
 
 			<Divider className="text-center">Detalles del producto</Divider>
 			{pedido.pedido.map((pedido, index) => {
