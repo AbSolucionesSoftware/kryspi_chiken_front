@@ -10,80 +10,13 @@ import { MenuContext } from '../../context/carritoContext';
 // import jwt_decode from 'jwt-decode';
 import ColorCustomizer from '../Colors/colores';
 import { makeStyles } from '@material-ui/styles';
+import MantenimientoImg from './Mantenimiento.png';
 
 export default function LayoutBasic(props) {
 	const { routes } = props;
 	const { Content, Footer } = Layout;
 	const {colores } = useContext(MenuContext);
-	// const token = localStorage.getItem('token');
-	// var decoded = { _id: '' };
-	// const { setDatosContx, setLoading, active, setColores, colores } = useContext(MenuContext);
-	// if (token !== null) decoded = Jwt(token);
-
-	// function Jwt(token) {
-	// 	try {
-	// 		return jwt_decode(token);
-	// 	} catch (e) {
-	// 		return null;
-	// 	}
-	// }
-
-	// const obtenerInformacionTienda = useCallback(
-	// 	async () => {
-	// 		setLoading(true);
-	// 		await clienteAxios
-	// 			.get(`/home/${decoded._id ? decoded._id : null}`, {
-	// 				headers: {
-	// 					Authorization: `bearer ${token}`
-	// 				}
-	// 			})
-	// 			.then((res) => {
-	// 				const datos = res.data;
-	// 				setDatosContx(datos);
-	// 				setLoading(false);
-	// 				if (datos.tienda.length > 0 && datos.tienda[0].colorPage) {
-	// 					const colores = datos.tienda[0].colorPage;
-	// 					setColores({
-	// 						navPrimary: {
-	// 							text: colores.navPrimary.text,
-	// 							background: colores.navPrimary.background,
-	// 							hoverText: colores.navPrimary.hoverText,
-	// 						},
-	// 						navSecondary: {
-	// 							text: colores.navSecondary.text,
-	// 							background: colores.navSecondary.background,
-	// 							hoverText: colores.navSecondary.hoverText,
-	// 						},
-	// 						bodyPage: {
-	// 							text: colores.bodyPage.text,
-	// 							background: colores.bodyPage.background,
-	// 							hoverText: colores.bodyPage.hoverText,
-	// 							card: {
-	// 								text: colores.bodyPage.card.text,
-	// 								background: colores.bodyPage.card.background,
-	// 							}
-	// 						},
-	// 						footer: {
-	// 							text: colores.footer.text,
-	// 							background: colores.footer.background
-	// 						}
-	// 					});
-	// 				}
-	// 			})
-	// 			.catch((res) => {
-	// 				console.log(res);
-	// 				setLoading(false);
-	// 			});
-	// 	},
-	// 	[ decoded._id, token, setDatosContx, setLoading ]
-	// );
-
-	// useEffect(
-	// 	() => {
-	// 		obtenerInformacionTienda();
-	// 	},
-	// 	[ obtenerInformacionTienda, active ]
-	// );
+	const production = false;
 
 	const useStyles = makeStyles({
 		background: {
@@ -92,6 +25,18 @@ export default function LayoutBasic(props) {
 	});
 	
 	const classes = useStyles();
+
+	if(!production){
+		return (
+			<div style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100vh", border: "1px black solid"}}>
+				<div>
+					<img style={{width: "700px"}} src={MantenimientoImg} />
+					<p style={{fontSize: "40px", textAlign: "center"}}>Estamos en mantenimiento</p>
+					<p style={{fontSize: "30px", textAlign: "center"}}>Favor de tener paciencia.</p>
+				</div>
+			</div>
+		)
+	}
 
 	return (
 		<div className="body">
