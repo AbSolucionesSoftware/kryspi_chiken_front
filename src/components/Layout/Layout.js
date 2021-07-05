@@ -16,7 +16,7 @@ export default function LayoutBasic(props) {
 	const { routes } = props;
 	const { Content, Footer } = Layout;
 	const {colores } = useContext(MenuContext);
-	const production = false;
+	const production = true;
 
 	const useStyles = makeStyles({
 		background: {

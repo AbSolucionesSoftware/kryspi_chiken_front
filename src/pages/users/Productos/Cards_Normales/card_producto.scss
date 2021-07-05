@@ -64,7 +64,7 @@
 
 //contendores de productos 
 .contenedor-imagen-principal{
-    height: auto; 
+    height: 270px; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,23 +157,59 @@
 //estilos RESPONSIVOS 
 @media(max-width: 768px){
     .contenedor-imagen-producto-principal{
-        height: auto; 
-        width: 180px;
+        height: 126px;
+        width: 100%!important;
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    .imagen-producto-principal{
+        width: 100%!important;
+        height: 100%!important;
+        background-repeat: no-repeat;
+        background-attachment: center;
+        background-position: center center;
+        background-size: contain;
     }
     //contenedor de imagen de productos
     .contenedor-imagen-principal{
-        height: auto; 
+        height: 126px;
+        width: 100%!important;
         display: flex;
         justify-content: center;
         align-items: center;
     }
+    .imagen-principal{
+        width: 100%!important;
+        height: 100%!important;
+        background-repeat: no-repeat;
+        background-attachment: center;
+        background-position: center center;
+        background-size: contain;
+    }
+
+    .contenedor-titulos-productos{
+        height: 52px;
+        margin: 0%!important;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 5%;
+    }
+    .description-menu{
+        height: 70px;
+        white-space: nowrap;
+        overflow: hidden;
+        white-space: initial;
+        padding: 3%;
+    }
+
     .size-col{
         min-width: 10px;
+        height: 280px;
     }
     .size-col-prin{
+        height: 270px;
         min-width: 10px;
     }
     .frente-bajo > .ant-card-body{
@@ -189,7 +225,7 @@
         align-items: flex-start;
     }
     .contenedor-titulos-productos{
-        padding-left: 5%;
+        padding-left: 2%;
         display: flex;
         justify-content: center;
         align-items: flex-start;

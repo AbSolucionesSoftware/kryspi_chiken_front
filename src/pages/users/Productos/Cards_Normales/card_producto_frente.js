@@ -109,7 +109,7 @@ export default function Card_Producto_Frente(props) {
 						>
 							<div className="container">
 								<div className="row">
-									<div className="col-8 col-lg-8" style={{padding: '3%', margin: '0%'}}>
+									<div className="col-8 col-lg-8" style={{padding: '1%', margin: '0%'}}>
 										<div className="frente contenedor-titulos-productos">
 											<p className="titulo-producto-frente text-color">{productos.nombre}</p>
 										</div>
@@ -139,10 +139,10 @@ export default function Card_Producto_Frente(props) {
 									</div>
 									<div
 										style={{padding: '0%', margin: '0%'}}
-										className="col-12 col-lg-12 font-descrip-card-frente text-color "
+										className="col-12 col-lg-12 font-descrip-card-frente text-color description-menu"
 									>
 										<p 
-											class="overflow-ellipsis description text-justify"
+											class="overflow-ellipsis description description-menu text-justify"
 											dangerouslySetInnerHTML={{
 												__html: DOMPurify.sanitize(productos.descripcion)
 											}}

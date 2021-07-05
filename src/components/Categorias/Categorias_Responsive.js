@@ -52,15 +52,18 @@ const CategoriasResponsive = (props) => {
 		return null;
 	}
 
-
+	function handleClick(e) {
+		console.log('click', e);
+	  }
 	const categorias_nav = datosContx.navbar.filtroNav.map((categoria, index) => {
 		return (
 			<>
-			<SubMenu
+			<Menu.Item
+			 	// mode="vertical"
 				key={categoria.categoria}
 				title={categoria.categoria}
 				className={"submenu-categoria nav-font-color-categorias container-subcategorias-nav size-submenu-cat font-cates d-flex flex-wrap" + classes.background + ' ' + classes.hover}
-				onTitleClick={(e) => {
+				onClick={(e) => {
 					if(e.key === categoria.categoria){
 						props.history.push(`/filtros/${temporadaSeleccionada}/${categoria.categoria}/${subcategoriaSeleccionada}/${generoSeleccionado}`);
 						setCategoriaSeleccionada(categoria.categoria);
@@ -69,8 +72,8 @@ const CategoriasResponsive = (props) => {
 				}}
 
 			>
-
-				{categoria.subcCategoria.map((sub) => {
+				{categoria.categoria}
+				{/* {categoria.subcCategoria.map((sub) => {
 					return (
 						<Menu.Item
 							className="font-subcates d-flex flex-wrap"
@@ -83,8 +86,8 @@ const CategoriasResponsive = (props) => {
 							{sub._id}
 						</Menu.Item>
 					);
-				})}
-			</SubMenu>
+				})} */}
+			</Menu.Item>
 			{/* {
 				datosContx.navbar.filtroNav.length -1 !== index? (
 					<><Divider className={"divisor " + classes.divider} type="vertical"/></>
@@ -129,32 +132,25 @@ const CategoriasResponsive = (props) => {
 			</Menu.Item>
 		);
 	}); */
-	const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
-	const onOpenChange = keys => {
-		const latestOpenKey = keys.find(key => openKeys.indexOf(key) === -1);
-		if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-		  setOpenKeys(keys);
-		} else {
-		  setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
-		}
-	  };
 
+	
 	return (
-		<Layout className={"container-subcategorias-nav size-layout-cat d-flex flex-wrap" + classes.background} style={{padding: '0%', margin: '0%'}}>
+		<Layout className={"d-flex justify-content-center align-items-center container-subcategorias-nav size-layout-cat " + classes.background} style={{padding: '0%', margin: '0%'}}>
 			{/* <Spin className="ml-5 d-inline spin-nav-categorias" spinning={loading} />  */}
-			<Menu
+			{/* <Menu
 				className={"d-flex flex-wrap categorias-navbar size-menu-cat font-cates " + classes.background }
 				theme="light"
 				mode="horizontal"
 				defaultSelectedKeys={[ window.location.pathname ]}
 				triggerSubMenuAction="click"
-			>
-			{/* <Menu mode="inline" openKeys={openKeys} onOpenChange={onOpenChange} style={{ width: 256 }}>
-      			<SubMenu key="sub1"  title="Navigation One"> */}
-				{categorias_nav}
-				{/* </SubMenu>
-			</Menu> */}
-		 	</Menu>
+			> */}
+			{/* onOpenChange={onOpenChange} openKeys={openKeys} */}
+			<Menu className={'d-flex justify-content-center align-items-center'  + classes.background } style={{ width: 170, height: 'auto',  border: '2.5px solid #000' }} >
+      			<SubMenu className="font-secun" key="categorias" title="Nuestro Menú">
+					{categorias_nav}
+				</SubMenu>
+			</Menu>
+		 	{/* </Menu> */}
 		</Layout>
 	);
 };

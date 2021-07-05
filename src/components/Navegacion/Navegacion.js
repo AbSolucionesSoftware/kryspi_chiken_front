@@ -14,6 +14,7 @@ import './navegacion.scss';
 import Categorias from '../../components/Categorias/Categorias';
 import { makeStyles } from '@material-ui/styles';
 import NavegacionResponsive from './NavegacionResponsive';
+import Categorias_Responsive from '../Categorias/Categorias_Responsive';
 
 const { Search } = Input;
 const { Header } = Layout;
@@ -152,6 +153,7 @@ const Navegacion = (props) => {
 										) : (
 											<div className="d-none" />
 										)}
+										
 										{/* <div className="col-lg-8 row input-search">
 										<Input
 											onChange={valor}
@@ -170,6 +172,7 @@ const Navegacion = (props) => {
 								{/* INICIO DE AVATAR, TU CARRITO Y ENTRAR  */}
 								<div className="col-lg-8 containe-categorias  mt-2">
 									<Categorias />
+									
 								</div>
 								<div className="col-lg-2 row a4 mt-2 justify-content-end">
 									<div>

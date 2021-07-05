@@ -211,7 +211,7 @@ export default function NavegacionResponsive(props) {
 
             </div>
             <div className="top-menu-responsive">
-                <div className="col-12 row d-flex flex-wrap align-content-center">
+                <div className="col-12 d-flex justify-content-center align-items-center">
                     {/* {!decoded || decoded.rol === true ? (
                         <div className="d-none" />
                     ) : (

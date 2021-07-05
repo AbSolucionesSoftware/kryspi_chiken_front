@@ -114,7 +114,7 @@ export default function Card_Producto(props) {
 									<div className="col-8 col-lg-8 contenedor-titulos-productos" style={{padding: '1%', margin: '0%'}}>
 										<p className="titulo-producto-menu text-color">{productos.nombre}</p>
 									</div>
-									<div className="col-4 col-lg-4 cont-precios-frente" style={{padding: '0%', margin: '0%'}}>
+									<div className="col-4 col-lg-4 cont-precios-frente " style={{padding: '1%', margin: '0%'}}>
 										{!productos.promocion.length ? (
 											<div className="contenedor-precios-productos">
 												<h3 className="precio-prin precio-rebaja ">${formatoMexico(productos.precio)}</h3>
